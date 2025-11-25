@@ -1,0 +1,78 @@
+{
+	"name": "@savvy-web/workflow-integration",
+	"version": "0.0.0",
+	"private": true,
+	"description": "A private repository for GitHub-related tools and utilities.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/savvy-web/integration.git"
+	},
+	"type": "module",
+	"scripts": {
+		"build": "turbo run build --log-order=grouped",
+		"build:dev": "turbo run build:dev --log-order=grouped",
+		"build:npm": "turbo run build:npm --log-order=grouped",
+		"ci:build": "turbo run build --log-order=grouped",
+		"ci:publish": "echo 'Running CI publish...'",
+		"ci:test": "vitest --run --reporter=verbose",
+		"ci:version": "changeset version && biome format --write .",
+		"lint": "biome check --max-diagnostics=none",
+		"lint:fix": "biome check --write --max-diagnostics=none",
+		"lint:fix:unsafe": "biome check --write --unsafe --max-diagnostics=none",
+		"lint:md": "markdownlint-cli2 '**/*.{md,mdx}' --config './lib/configs/.markdownlint-cli2.jsonc'",
+		"lint:md:fix": "markdownlint-cli2  --config './lib/configs/.markdownlint-cli2.jsonc' --fix",
+		"lint:md:fix:file": "markdownlint-cli2 '**/*.{md,mdx}' --config './lib/configs/.markdownlint-cli2.jsonc' --fix",
+		"lint:md:ws": "markdownlint-cli2  --config './lib/configs/.markdownlint-cli2.jsonc' --fix",
+		"prepare": "husky",
+		"test": "turbo run //#vitest:all --log-prefix=none --log-order=grouped",
+		"test:changed": "bash lib/scripts/test-changed.sh",
+		"test:related": "vitest related --run --coverage=false --pass-with-no-tests",
+		"test:watch": "vitest --coverage --watch --ui",
+		"test:ws": "bash lib/scripts/run-task-for-workspace.sh test",
+		"typecheck": "turbo run //#typecheck:all --log-prefix=none --log-order=grouped",
+		"typecheck:all": "echo 'Running all typechecks...'",
+		"typecheck:ws": "bash lib/scripts/run-task-for-workspace.sh typecheck",
+		"vitest:all": "vitest --run"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.6",
+		"@changesets/cli": "^2.29.7",
+		"@commitlint/cli": "^20.1.0",
+		"@commitlint/config-conventional": "^20.0.0",
+		"@octokit/core": "^7.0.6",
+		"@octokit/types": "^16.0.0",
+		"@rslib/core": "^0.18.0",
+		"@types/node": "^24.10.1",
+		"@typescript/native-preview": "7.0.0-dev.20251124.1",
+		"@vercel/ncc": "^0.38.4",
+		"@vitest/coverage-v8": "^4.0.13",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
+		"markdownlint-cli2": "^0.19.1",
+		"minimatch": "^10.1.1",
+		"prettier": "^3.6.2",
+		"sort-package-json": "3.4.0",
+		"tsx": "^4.20.6",
+		"turbo": "^2.6.1",
+		"type-fest": "^5.2.0",
+		"vitest": "^4.0.13",
+		"yaml": "^2.8.1",
+		"yaml-lint": "^1.7.0"
+	},
+	"packageManager": "pnpm@10.20.0",
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "10.20.0",
+			"onFail": "error"
+		},
+		"runtime": [
+			{
+				"name": "node",
+				"version": "24.11.0",
+				"onFail": "error"
+			}
+		]
+	}
+}

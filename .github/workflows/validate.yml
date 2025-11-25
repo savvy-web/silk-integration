@@ -1,0 +1,522 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches: [main, changeset-release/main]
+    types: [opened, synchronize, reopened, edited]
+
+# Cancel previous runs on new pushes to the same branch or PR
+# When cancelled, the cleanup-checks job will resolve any in-progress checks as neutral
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+# Default permissions (most restrictive - jobs override as needed)
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validation
+    runs-on: ubuntu-latest
+    # Pre-declare environment variables for check IDs (set dynamically by create-checks step)
+    env:
+      DO_NOT_TRACK: "1"
+      TURBO_TELEMETRY_DISABLE: "1"
+      PR_TITLE_CHECK_ID: ""
+      COMMITLINT_CHECK_ID: ""
+      LINT_CHECK_ID: ""
+      TEST_CHECK_ID: ""
+    outputs:
+      pr-title-result: ${{ steps.checks.outputs.pr-title-result }}
+      commitlint-result: ${{ steps.checks.outputs.commitlint-result }}
+      commitlint-warnings-only: ${{ steps.commitlint-check.outputs.warnings_only }}
+      lint-result: ${{ steps.checks.outputs.lint-result }}
+      test-result: ${{ steps.checks.outputs.test-result }}
+    permissions:
+      contents: read
+      checks: write
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-contents: read
+          permission-checks: write
+
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+          persist-credentials: true
+
+      # Create all validation checks upfront so they appear in PR immediately
+      # Sets env vars: PR_TITLE_CHECK_ID, COMMITLINT_CHECK_ID, LINT_CHECK_ID, TEST_CHECK_ID
+      - name: Create validation checks
+        id: create-checks
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            const checks = [
+              {
+                name: 'PR Title Validation',
+                title: 'Validating PR title...',
+                summary: 'Checking if PR title follows conventional commit format',
+                env_key: 'PR_TITLE_CHECK_ID'
+              },
+              {
+                name: 'Conventional Commits',
+                title: 'Validating commit messages...',
+                summary: 'Checking if all commit messages follow conventional commit format',
+                env_key: 'COMMITLINT_CHECK_ID'
+              },
+              {
+                name: 'Code Quality',
+                title: 'Running linter...',
+                summary: 'Checking code quality with Biome',
+                env_key: 'LINT_CHECK_ID'
+              },
+              {
+                name: 'Tests',
+                title: 'Running tests...',
+                summary: 'Executing test suite',
+                env_key: 'TEST_CHECK_ID'
+              }
+            ];
+
+            for (const check of checks) {
+              const { data: createdCheck } = await github.rest.checks.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                head_sha: context.payload.pull_request.head.sha,
+                name: check.name,
+                status: 'in_progress',
+                output: {
+                  title: check.title,
+                  summary: check.summary
+                }
+              });
+              if (!createdCheck.id) {
+                core.setFailed(`Failed to create check: ${check.name}`);
+              }
+              core.exportVariable(check.env_key, createdCheck.id);
+            }
+
+      - name: Detect runtime
+        id: detect-runtime
+        uses: savvy-web/workflow-runtime-action@main
+
+      - name: Fetch base branch for comparison
+        run: git fetch origin ${{ github.base_ref }}
+
+      - name: Validate PR Title
+        id: pr-title-check
+        continue-on-error: true
+        run: |
+          echo "Validating PR title: ${{ github.event.pull_request.title }}"
+          set +e
+          pnpm exec commitlint --config commitlint.config.ts <<< "${{ github.event.pull_request.title }}"
+          EXIT_CODE=$?
+          set -e
+          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+          exit 0
+
+      - name: Update PR Title Check
+        if: always()
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            // Retry helper for transient GitHub API errors
+            async function updateCheckWithRetry(updateParams, maxRetries = 5) {
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  return await github.rest.checks.update(updateParams);
+                } catch (error) {
+                  const is500Error = error.status >= 500 && error.status < 600;
+                  const shouldRetry = is500Error && attempt < maxRetries;
+
+                  if (shouldRetry) {
+                    const delayMs = Math.min(1000 * Math.pow(2, attempt - 1), 16000);
+                    console.log(`Attempt ${attempt} failed with ${error.status} error. Retrying in ${delayMs}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delayMs));
+                  } else {
+                    throw error;
+                  }
+                }
+              }
+            }
+
+            const exitCode = '${{ steps.pr-title-check.outputs.exit_code }}';
+            const conclusion = exitCode === '0' ? 'success' : 'failure';
+
+            await updateCheckWithRetry({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: '${{ env.PR_TITLE_CHECK_ID }}',
+              status: 'completed',
+              conclusion: conclusion,
+              output: {
+                title: conclusion === 'success' ? 'PR title is valid' : 'PR title is invalid',
+                summary: conclusion === 'success'
+                  ? 'PR title follows conventional commit format'
+                  : 'PR title must follow conventional commit format (e.g., "feat: add feature")'
+              }
+            });
+
+      # Commitlint Validation
+      - name: Validate Conventional Commits
+        id: commitlint-check
+        continue-on-error: true
+        run: |
+          echo "Validating commit messages between origin/${{ github.base_ref }} and HEAD using @savvy-web/commitlint-config"
+
+          set +e
+          pnpm exec commitlint --from=origin/${{ github.base_ref }} --to=HEAD --config commitlint.config.ts --verbose > commitlint-results.txt 2>&1
+          COMMITLINT_EXIT_CODE=$?
+          set -e
+
+          # Parse results and create GitHub annotations
+          node .github/scripts/commitlint-annotate.js
+
+          echo "exit_code=$COMMITLINT_EXIT_CODE" >> $GITHUB_OUTPUT
+          exit 0
+
+      - name: Update Commitlint Check
+        if: always()
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            // Retry helper for transient GitHub API errors
+            async function updateCheckWithRetry(updateParams, maxRetries = 5) {
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  return await github.rest.checks.update(updateParams);
+                } catch (error) {
+                  const is500Error = error.status >= 500 && error.status < 600;
+                  const shouldRetry = is500Error && attempt < maxRetries;
+
+                  if (shouldRetry) {
+                    const delayMs = Math.min(1000 * Math.pow(2, attempt - 1), 16000);
+                    console.log(`Attempt ${attempt} failed with ${error.status} error. Retrying in ${delayMs}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delayMs));
+                  } else {
+                    throw error;
+                  }
+                }
+              }
+            }
+
+            const exitCode = '${{ steps.commitlint-check.outputs.exit_code }}';
+            const warningsOnly = '${{ steps.commitlint-check.outputs.warnings_only }}' === 'true';
+
+            let conclusion = 'success';
+            let title = 'All commits are valid';
+            let summary = 'All commit messages follow conventional commit format';
+
+            if (warningsOnly) {
+              conclusion = 'neutral';
+              title = 'Commits have warnings';
+              summary = `Found warning(s) in commit messages. Consider addressing these for better commit hygiene.`;
+            } else if (exitCode !== '0') {
+              conclusion = 'failure';
+              title = 'Commits have errors';
+              summary = 'Some commit messages do not follow conventional commit format. Check the workflow logs for details.';
+            }
+
+            await updateCheckWithRetry({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: '${{ env.COMMITLINT_CHECK_ID }}',
+              status: 'completed',
+              conclusion: conclusion,
+              output: { title, summary }
+            });
+
+      # Lint Validation
+      - name: Run Biome Lint
+        id: lint-check
+        continue-on-error: true
+        run: |
+          set +e
+          biome ci .
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+          exit 0
+
+      - name: Update Lint Check
+        if: always()
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            // Retry helper for transient GitHub API errors
+            async function updateCheckWithRetry(updateParams, maxRetries = 5) {
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  return await github.rest.checks.update(updateParams);
+                } catch (error) {
+                  const is500Error = error.status >= 500 && error.status < 600;
+                  const shouldRetry = is500Error && attempt < maxRetries;
+
+                  if (shouldRetry) {
+                    const delayMs = Math.min(1000 * Math.pow(2, attempt - 1), 16000);
+                    console.log(`Attempt ${attempt} failed with ${error.status} error. Retrying in ${delayMs}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delayMs));
+                  } else {
+                    throw error;
+                  }
+                }
+              }
+            }
+
+            const exitCode = '${{ steps.lint-check.outputs.exit_code }}';
+            const conclusion = exitCode === '0' ? 'success' : 'failure';
+
+            await updateCheckWithRetry({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: '${{ env.LINT_CHECK_ID }}',
+              status: 'completed',
+              conclusion: conclusion,
+              output: {
+                title: conclusion === 'success' ? 'Code quality checks passed' : 'Code quality checks failed',
+                summary: conclusion === 'success'
+                  ? 'All Biome checks passed'
+                  : 'Biome found issues. Check the workflow logs for details.'
+              }
+            });
+
+      - name: Run Tests
+        id: test-check
+        continue-on-error: true
+        run: |
+          set +e
+          # Run tests through Turbo - automatically runs typecheck:all first
+          # vitest.config.ts handles GitHub Actions reporter configuration
+          pnpm ci:test
+          EXIT_CODE=$?
+          set -e
+
+          # Add test results to job summary
+          echo "## Test Results" >> $GITHUB_STEP_SUMMARY
+          if [ $EXIT_CODE -eq 0 ]; then
+            echo "✅ All tests passed!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Some tests failed. Check the logs above for details." >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+          exit 0
+
+      - name: Update Test Check
+        if: always()
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            // Retry helper for transient GitHub API errors
+            async function updateCheckWithRetry(updateParams, maxRetries = 5) {
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  return await github.rest.checks.update(updateParams);
+                } catch (error) {
+                  const is500Error = error.status >= 500 && error.status < 600;
+                  const shouldRetry = is500Error && attempt < maxRetries;
+
+                  if (shouldRetry) {
+                    const delayMs = Math.min(1000 * Math.pow(2, attempt - 1), 16000);
+                    console.log(`Attempt ${attempt} failed with ${error.status} error. Retrying in ${delayMs}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delayMs));
+                  } else {
+                    throw error;
+                  }
+                }
+              }
+            }
+
+            const exitCode = '${{ steps.test-check.outputs.exit_code }}';
+            const conclusion = exitCode === '0' ? 'success' : 'failure';
+
+            await updateCheckWithRetry({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: '${{ env.TEST_CHECK_ID }}',
+              status: 'completed',
+              conclusion: conclusion,
+              output: {
+                title: conclusion === 'success' ? 'All tests passed' : 'Some tests failed',
+                summary: conclusion === 'success'
+                  ? 'All test suites passed'
+                  : 'Some tests failed. Check the workflow logs for details.'
+              }
+            });
+
+      # Set outputs for downstream jobs
+      - name: Set check outputs
+        id: checks
+        if: always()
+        run: |
+          # PR Title result
+          if [ "${{ steps.pr-title-check.outputs.exit_code }}" == "0" ]; then
+            echo "pr-title-result=success" >> $GITHUB_OUTPUT
+          else
+            echo "pr-title-result=failure" >> $GITHUB_OUTPUT
+          fi
+
+          # Commitlint result (with warnings-only support)
+          if [ "${{ steps.commitlint-check.outputs.exit_code }}" == "0" ]; then
+            echo "commitlint-result=success" >> $GITHUB_OUTPUT
+          elif [ "${{ steps.commitlint-check.outputs.warnings_only }}" == "true" ]; then
+            echo "commitlint-result=neutral" >> $GITHUB_OUTPUT
+          else
+            echo "commitlint-result=failure" >> $GITHUB_OUTPUT
+          fi
+
+          # Lint result
+          if [ "${{ steps.lint-check.outputs.exit_code }}" == "0" ]; then
+            echo "lint-result=success" >> $GITHUB_OUTPUT
+          else
+            echo "lint-result=failure" >> $GITHUB_OUTPUT
+          fi
+
+          # Test result
+          if [ "${{ steps.test-check.outputs.exit_code }}" == "0" ]; then
+            echo "test-result=success" >> $GITHUB_OUTPUT
+          else
+            echo "test-result=failure" >> $GITHUB_OUTPUT
+          fi
+
+  # Stub job that creates and immediately completes the Claude Code Review check
+  # This test repository doesn't run actual Claude reviews, but needs the check to pass
+  claude-review:
+    name: Claude Code Review
+    needs: [validate]
+    runs-on: ubuntu-latest
+    if: |
+      github.event.pull_request.user.login == '${{ vars.APP_BOT_NAME }}' ||
+      github.event.pull_request.user.type == 'User'
+    permissions:
+      checks: write
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-checks: write
+
+      - name: Create and complete Claude Review check
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            // Create the check as completed with neutral conclusion
+            // This test repo doesn't run actual Claude reviews
+            const { data: checkRun } = await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'Claude Code Review',
+              head_sha: context.payload.pull_request.head.sha,
+              status: 'completed',
+              conclusion: 'neutral',
+              output: {
+                title: 'Review skipped (test repository)',
+                summary: 'This is a test repository for workflow-release-action. Claude Code Review is not configured here.'
+              }
+            });
+
+            console.log(`Created and completed check run ${checkRun.id}`);
+
+  cleanup-checks:
+    name: Cleanup Checks
+    needs: [validate, claude-review]
+    runs-on: ubuntu-latest
+    if: always()
+    permissions:
+      checks: write
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-checks: write
+
+      - name: Resolve in-progress checks as neutral
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            // Retry helper for transient GitHub API errors
+            async function updateCheckWithRetry(updateParams, maxRetries = 5) {
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  return await github.rest.checks.update(updateParams);
+                } catch (error) {
+                  const is500Error = error.status >= 500 && error.status < 600;
+                  const shouldRetry = is500Error && attempt < maxRetries;
+
+                  if (shouldRetry) {
+                    const delayMs = Math.min(1000 * Math.pow(2, attempt - 1), 16000);
+                    console.log(`Attempt ${attempt} failed with ${error.status} error. Retrying in ${delayMs}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delayMs));
+                  } else {
+                    throw error;
+                  }
+                }
+              }
+            }
+
+            const checkNames = [
+              'PR Title Validation',
+              'Conventional Commits',
+              'Code Quality',
+              'Tests',
+              'Claude Code Review'
+            ];
+
+            // Get all check runs for this commit
+            const { data: checkRuns } = await github.rest.checks.listForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.payload.pull_request.head.sha
+            });
+
+            // Find our checks that are still in progress
+            const inProgressChecks = checkRuns.check_runs.filter(check =>
+              checkNames.includes(check.name) && check.status === 'in_progress'
+            );
+
+            if (inProgressChecks.length === 0) {
+              console.log('No in-progress checks to clean up');
+              return;
+            }
+
+            console.log(`Found ${inProgressChecks.length} in-progress check(s) to clean up`);
+
+            // Update each in-progress check to neutral
+            for (const check of inProgressChecks) {
+              console.log(`Resolving check: ${check.name} (ID: ${check.id})`);
+
+              await updateCheckWithRetry({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                check_run_id: check.id,
+                status: 'completed',
+                conclusion: 'neutral',
+                output: {
+                  title: 'Workflow cancelled',
+                  summary: 'This check was cancelled because a newer workflow run was triggered or the workflow was manually cancelled.'
+                }
+              });
+            }
+
+            console.log('✅ All in-progress checks resolved as neutral')

@@ -1,0 +1,32 @@
+{
+	"name": "@savvy-web/linked-1",
+	"description": "First package in the linked group",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build:dev": "NODE_OPTIONS='--disable-warning=ExperimentalWarning' rslib build --env-mode dev",
+		"build:npm": "NODE_OPTIONS='--disable-warning=ExperimentalWarning' rslib build --env-mode npm",
+		"lint": "biome lint",
+		"test": "vitest --run --root ../.. --config vitest.config.ts --project @savvy-web/linked-1",
+		"test:related": "vitest related --run --coverage=false --root ../.. --config vitest.config.ts --project @savvy-web/linked-1",
+		"typecheck": "tsgo --noEmit"
+	},
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"devDependencies": {
+		"@microsoft/api-extractor": "^7.55.1",
+		"@rsbuild/core": "^1.6.9",
+		"@rslib/core": "^0.18.2",
+		"@savvy-web/builder": "workspace:*",
+		"@types/node": "^24.10.1",
+		"vitest": "^4.0.14"
+	},
+	"publishConfig": {
+		"access": "public",
+		"directory": "dist/dev",
+		"linkDirectory": true,
+		"registry": "https://registry.savvyweb.dev/"
+	}
+}

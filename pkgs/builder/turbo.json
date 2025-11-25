@@ -1,0 +1,67 @@
+{
+	"$schema": "https://turborepo.com/schema.v2.json",
+	"extends": ["//"],
+	"tasks": {
+		"build": {
+			"dependsOn": ["build:dev"],
+			"inputs": [
+				"$TURBO_DEFAULT$",
+				"$TURBO_ROOT$/package.json",
+				"$TURBO_ROOT$/pnpm-lock.yaml",
+				"$TURBO_ROOT$/pnpm-workspace.yaml",
+				"package.json",
+				"rslib.config.ts",
+				"tsconfig.json",
+				"src/**/*"
+			],
+			"outputLogs": "new-only",
+			"outputs": ["dist/dev/**"]
+		},
+		"build:dev": {
+			"inputs": [
+				"$TURBO_DEFAULT$",
+				"$TURBO_ROOT$/package.json",
+				"$TURBO_ROOT$/pnpm-lock.yaml",
+				"$TURBO_ROOT$/pnpm-workspace.yaml",
+				"package.json",
+				"rslib.config.ts",
+				"tsconfig.json",
+				"src/**/*"
+			],
+			"outputLogs": "new-only",
+			"outputs": ["dist/dev/**"]
+		},
+		"lint": {
+			"inputs": [
+				"$TURBO_DEFAULT$",
+				"$TURBO_ROOT$/package.json",
+				"$TURBO_ROOT$/pnpm-lock.yaml",
+				"$TURBO_ROOT$/pnpm-workspace.yaml",
+				"*.ts",
+				"*.js",
+				"*.tsx",
+				"*.jsx",
+				"*.json",
+				"*.jsonc",
+				"src/**/*.ts"
+			],
+			"outputLogs": "new-only"
+		},
+		"typecheck": {
+			"cache": true,
+			"inputs": [
+				"$TURBO_DEFAULT$",
+				"$TURBO_ROOT$/package.json",
+				"$TURBO_ROOT$/pnpm-lock.yaml",
+				"$TURBO_ROOT$/pnpm-workspace.yaml",
+				"**/*.ts",
+				"**/*.tsx",
+				"**/*.mts",
+				"tsconfig.json",
+				"package.json"
+			],
+			"outputLogs": "new-only",
+			"outputs": ["dist/.tsbuildinfo.lib"]
+		}
+	}
+}

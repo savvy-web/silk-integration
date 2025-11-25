@@ -1,0 +1,25 @@
+{
+	"$schema": "https://turborepo.com/schema.v2.json",
+	"tasks": {
+		"//#typecheck:all": {
+			"cache": true,
+			"dependsOn": [
+				"@savvy-web/builder#typecheck",
+				"@savvy-web/dependency-package#typecheck",
+				"@savvy-web/standalone-package#typecheck",
+				"@savvy-web/linked-1#typecheck",
+				"@savvy-web/linked-2#typecheck",
+				"@savvy-web/fixed-1#typecheck",
+				"@savvy-web/fixed-2#typecheck"
+			],
+			"outputLogs": "errors-only",
+			"outputs": []
+		},
+		"//#vitest:all": {
+			"cache": false,
+			"dependsOn": ["typecheck:all"],
+			"outputLogs": "full",
+			"outputs": [".coverage/**"]
+		}
+	}
+}

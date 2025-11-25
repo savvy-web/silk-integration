@@ -1,0 +1,29 @@
+{
+	"name": "@savvy-web/builder",
+	"description": "Internal build utilities for the workspace",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "NODE_OPTIONS='--disable-warning=ExperimentalWarning' rslib build --env-mode dev",
+		"build:dev": "NODE_OPTIONS='--disable-warning=ExperimentalWarning' rslib build --env-mode dev",
+		"lint": "biome lint",
+		"typecheck": "tsgo --noEmit"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/dev/index.d.ts",
+			"import": "./dist/dev/index.js"
+		}
+	},
+	"dependencies": {
+		"@pnpm/exportable-manifest": "^1000.2.1"
+	},
+	"devDependencies": {
+		"@microsoft/api-extractor": "^7.55.1",
+		"@rsbuild/core": "^1.6.9",
+		"@rslib/core": "^0.18.2",
+		"type-fest": "^5.2.0",
+		"@types/node": "^24.10.1"
+	}
+}
