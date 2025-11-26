@@ -52,4 +52,4 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude-review-pat: ${{ secrets.CLAUDE_REVIEW_PAT }}
-          dry-run: ${{ inputs.dry_run || 'true' }}
+          dry-run: ${{ inputs.dry_run || 'false' }}
