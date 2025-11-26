@@ -109,3 +109,57 @@ This repo is designed to be pointed at by the workflow-release-action's build st
    - Fixed packages maintain same version
    - Dependencies are updated properly
    - Builder package is ignored
+
+## Chaos Agent Testing
+
+The `/chaos` command automates integration testing by picking tickets and creating branches with themed changesets.
+
+### Usage
+
+```bash
+/chaos [mood] [issue-number]
+```
+
+**Moods:**
+
+- `random` (default) - Pure random ticket selection
+- `chaotic` - Prefers multi-package tickets, flowery prose
+- `lazy` - Prefers patch/bug tickets, minimal commits
+- `ambitious` - Prefers major bumps, complex work
+
+### What It Does
+
+1. Fetches open tickets with `integration-test` label
+2. Selects based on mood (or uses specified issue)
+3. Creates branch per ticket instructions
+4. Creates placeholder `.ts` files in `pkgs/<pkg>/src/`
+5. Creates whimsically-named changesets (e.g., `quacking-quantum-ducks.md`)
+6. Commits with conventional format
+7. Pushes and opens PR
+
+### Key Constraints
+
+- **No code changes** - Only creates placeholder files to avoid merge conflicts
+- **Changesets only** - Tests the release workflow without real features
+- **Themed prose** - Changesets use package themes from `THEMES.md`
+- **Conventional commits** - All commits follow `<type>(<scope>): <description>`
+
+### Package Themes
+
+Each package has a whimsical theme for engaging changeset descriptions:
+
+| Package | Theme |
+| --------- | ------- |
+| standalone | Interstellar Snack Delivery |
+| dependency | Sentient Rubber Duck Debugging Institute |
+| fixed-1 | Mystical Crystal Ball Error Prediction |
+| fixed-2 | Moonlight-Powered Code Compilation |
+| linked-1 | Circus of Chaotic Components |
+| linked-2 | Theatre of Theatrical Types |
+
+See `THEMES.md` for full theme details and key concepts.
+
+### Files
+
+- `.claude/commands/chaos.md` - Slash command definition
+- `.claude/agents/ticket-chaos.md` - Agent instructions with full theme reference
