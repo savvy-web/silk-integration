@@ -99,6 +99,7 @@ importers:
       type-fest:
         specifier: ^5.2.0
         version: 5.2.0
+    publishDirectory: dist/dev
 
   pkgs/dependency:
     devDependencies:
@@ -113,7 +114,7 @@ importers:
         version: 0.18.2(@microsoft/api-extractor@7.55.1(@types/node@24.10.1))(@typescript/native-preview@7.0.0-dev.20251124.1)(typescript@5.9.3)
       '@savvy-web/builder':
         specifier: workspace:*
-        version: link:../builder
+        version: link:../builder/dist/dev
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
@@ -135,7 +136,7 @@ importers:
         version: 0.18.2(@microsoft/api-extractor@7.55.1(@types/node@24.10.1))(@typescript/native-preview@7.0.0-dev.20251124.1)(typescript@5.9.3)
       '@savvy-web/builder':
         specifier: workspace:*
-        version: link:../builder
+        version: link:../builder/dist/dev
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
@@ -161,7 +162,7 @@ importers:
         version: 0.18.2(@microsoft/api-extractor@7.55.1(@types/node@24.10.1))(@typescript/native-preview@7.0.0-dev.20251124.1)(typescript@5.9.3)
       '@savvy-web/builder':
         specifier: workspace:*
-        version: link:../builder
+        version: link:../builder/dist/dev
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
@@ -183,7 +184,7 @@ importers:
         version: 0.18.2(@microsoft/api-extractor@7.55.1(@types/node@24.10.1))(@typescript/native-preview@7.0.0-dev.20251124.1)(typescript@5.9.3)
       '@savvy-web/builder':
         specifier: workspace:*
-        version: link:../builder
+        version: link:../builder/dist/dev
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
@@ -209,7 +210,7 @@ importers:
         version: 0.18.2(@microsoft/api-extractor@7.55.1(@types/node@24.10.1))(@typescript/native-preview@7.0.0-dev.20251124.1)(typescript@5.9.3)
       '@savvy-web/builder':
         specifier: workspace:*
-        version: link:../builder
+        version: link:../builder/dist/dev
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
@@ -235,7 +236,7 @@ importers:
         version: 0.18.2(@microsoft/api-extractor@7.55.1(@types/node@24.10.1))(@typescript/native-preview@7.0.0-dev.20251124.1)(typescript@5.9.3)
       '@savvy-web/builder':
         specifier: workspace:*
-        version: link:../builder
+        version: link:../builder/dist/dev
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1

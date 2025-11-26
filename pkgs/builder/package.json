@@ -25,5 +25,11 @@
 		"@rslib/core": "^0.18.2",
 		"type-fest": "^5.2.0",
 		"@types/node": "^24.10.1"
+	},
+	"publishConfig": {
+		"access": "public",
+		"directory": "dist/dev",
+		"linkDirectory": true,
+		"registry": "https://registry.savvyweb.dev/"
 	}
 }
