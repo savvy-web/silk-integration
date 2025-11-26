@@ -2,5 +2,6 @@ packages:
   - pkgs/*
 ignoredBuiltDependencies:
   - core-js
+loglevel: error
 onlyBuiltDependencies:
   - esbuild
