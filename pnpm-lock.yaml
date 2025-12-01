@@ -219,6 +219,28 @@ importers:
         version: 4.0.14(@types/node@24.10.1)(jiti@2.6.1)(tsx@4.20.6)(yaml@2.8.1)
     publishDirectory: dist/dev
 
+  pkgs/orphan:
+    devDependencies:
+      '@microsoft/api-extractor':
+        specifier: ^7.55.1
+        version: 7.55.1(@types/node@24.10.1)
+      '@rsbuild/core':
+        specifier: ^1.6.9
+        version: 1.6.9
+      '@rslib/core':
+        specifier: ^0.18.2
+        version: 0.18.2(@microsoft/api-extractor@7.55.1(@types/node@24.10.1))(@typescript/native-preview@7.0.0-dev.20251124.1)(typescript@5.9.3)
+      '@savvy-web/builder':
+        specifier: workspace:*
+        version: link:../builder/dist/dev
+      '@types/node':
+        specifier: ^24.10.1
+        version: 24.10.1
+      vitest:
+        specifier: ^4.0.14
+        version: 4.0.14(@types/node@24.10.1)(jiti@2.6.1)(tsx@4.20.6)(yaml@2.8.1)
+    publishDirectory: dist/dev
+
   pkgs/standalone:
     dependencies:
       '@savvy-web/dependency-package':
