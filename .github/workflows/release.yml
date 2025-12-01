@@ -37,6 +37,7 @@ jobs:
           permission-contents: write
           permission-pull-requests: write
           permission-checks: write
+          permission-members: read
 
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -55,3 +56,5 @@ jobs:
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude-review-pat: ${{ secrets.CLAUDE_REVIEW_PAT }}
           dry-run: ${{ inputs.dry_run || 'false' }}
+          registry-tokens: |
+            https://npm.savvyweb.dev/=${{ steps.app-token.outputs.token  }}

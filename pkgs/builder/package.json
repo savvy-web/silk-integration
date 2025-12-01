@@ -27,9 +27,7 @@
 		"@types/node": "^24.10.1"
 	},
 	"publishConfig": {
-		"access": "public",
 		"directory": "dist/dev",
-		"linkDirectory": true,
-		"registry": "https://registry.savvyweb.dev/"
+		"linkDirectory": true
 	}
 }
