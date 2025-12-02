@@ -28,7 +28,13 @@
 		"directory": "dist/dev",
 		"linkDirectory": true,
 		"targets": [
-			"github",
+			{
+				"protocol": "npm",
+				"registry": "https://npm.pkg.github.com/",
+				"directory": "dist/npm",
+				"access": "public",
+				"provenance": true
+			},
 			{
 				"protocol": "npm",
 				"directory": "dist/npm",
