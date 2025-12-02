@@ -17,24 +17,22 @@ concurrency:
   group: release-${{ github.ref }}
   cancel-in-progress: false
 
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+  checks: write
+  actions: read
+
 jobs:
   release:
     name: ${{ (inputs.dry_run != false) && 'Release --dry-run' || 'Release' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          permission-contents: read
-          permission-checks: write
-
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: true
 
       - name: Setup workflow runtime environment
@@ -46,6 +44,7 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude-review-pat: ${{ secrets.CLAUDE_REVIEW_PAT }}
           dry-run: ${{ inputs.dry_run || 'false' }}
