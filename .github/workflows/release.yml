@@ -22,6 +22,7 @@ permissions:
   pull-requests: write
   checks: write
   id-token: write
+  attestations: write
 
 jobs:
   release:
