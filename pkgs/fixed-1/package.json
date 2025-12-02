@@ -6,7 +6,8 @@
 	"type": "module",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/savvy-web/workflow-integration.git"
+		"url": "git+https://github.com/savvy-web/workflow-integration.git",
+		"directory": "pkgs/fixed-1"
 	},
 	"scripts": {
 		"build:dev": "NODE_OPTIONS='--disable-warning=ExperimentalWarning' rslib build --env-mode dev",

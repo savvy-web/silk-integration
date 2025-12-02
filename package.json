@@ -5,7 +5,7 @@
 	"description": "A private repository for GitHub-related tools and utilities.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/savvy-web/integration.git"
+		"url": "git+https://github.com/savvy-web/workflow-integration.git"
 	},
 	"type": "module",
 	"scripts": {
