@@ -4,6 +4,11 @@
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/savvy-web/workflow-integration.git",
+		"directory": "pkgs/orphan"
+	},
 	"scripts": {
 		"build:dev": "NODE_OPTIONS='--disable-warning=ExperimentalWarning' rslib build --env-mode dev",
 		"build:npm": "NODE_OPTIONS='--disable-warning=ExperimentalWarning' rslib build --env-mode npm",
