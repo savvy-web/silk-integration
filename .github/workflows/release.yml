@@ -42,7 +42,6 @@ jobs:
           permission-pull-requests: write
           permission-checks: write
           permission-members: read
-          permission-organization-packages: write
           permission-packages: write
 
       - name: Checkout repository
