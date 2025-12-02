@@ -23,6 +23,8 @@ permissions:
   checks: write
   id-token: write
   attestations: write
+  packages: write
+  issues: write
 
 jobs:
   release:
@@ -40,6 +42,8 @@ jobs:
           permission-pull-requests: write
           permission-checks: write
           permission-members: read
+          permission-organization-packages: write
+          permission-packages: write
 
       - name: Checkout repository
         uses: actions/checkout@v5
