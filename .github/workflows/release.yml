@@ -31,23 +31,10 @@ jobs:
     name: ${{ (inputs.dry_run != false) && 'Release --dry-run' || 'Release' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          permission-issues: write
-          permission-contents: write
-          permission-pull-requests: write
-          permission-checks: write
-          permission-members: read
-          permission-packages: write
-
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: true
 
       - name: Setup workflow runtime environment
@@ -57,9 +44,10 @@ jobs:
       - name: Run release action
         uses: savvy-web/workflow-release-action@main
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude-review-pat: ${{ secrets.CLAUDE_REVIEW_PAT }}
           dry-run: ${{ inputs.dry_run || 'false' }}
-          registry-tokens: |
-            https://npm.savvyweb.dev/=${{ steps.app-token.outputs.token  }}
+          custom-registries: |
+            https://npm.savvyweb.dev/
