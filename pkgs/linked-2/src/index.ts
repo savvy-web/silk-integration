@@ -1,5 +1,7 @@
 import { SHARED_CONSTANT, getSharedValue } from "@savvy-web/dependency-package";
 
+export * from "./theatre-finale-curtain.js";
+
 export type LinkedTwoValue = string;
 
 /**
