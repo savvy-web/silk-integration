@@ -52,8 +52,6 @@ Extract mood and optional issue number from: `$ARGUMENTS`
 
 ### Execute
 
-Now follow the Ticket Chaos Agent instructions from `.claude/agents/ticket-chaos.md`:
-
 1. **Fetch tickets** from this repo with `integration-test` label
 2. **Select ticket** based on mood (or use provided issue number)
 3. **Create branch** from origin/main per ticket instructions
