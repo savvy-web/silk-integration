@@ -1,3 +1,5 @@
+export * from "./unified-prophecy-broadcaster.js";
+
 export type FixedOneValue = string;
 
 /**
