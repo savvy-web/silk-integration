@@ -1,3 +1,5 @@
+export * from "./circus-grand-finale.js";
+
 export type LinkedOneValue = string;
 
 /**

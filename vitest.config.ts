@@ -55,7 +55,17 @@ export default defineConfig({
 			provider: "v8",
 			reporter: ["text", "json", ["html", { subdir: "report" }]],
 			reportsDirectory: "./.coverage",
-			exclude: ["**/dist/**", "**/node_modules/**"],
+			exclude: [
+				"**/dist/**",
+				"**/node_modules/**",
+				// Placeholder stubs for integration testing (no business logic)
+				"**/universal-duck-conductor.ts",
+				"**/unified-prophecy-broadcaster.ts",
+				"**/celestial-compilation-sync.ts",
+				"**/circus-grand-finale.ts",
+				"**/theatre-finale-curtain.ts",
+				"**/grand-spectacle-coordinator.ts",
+			],
 			enabled: true,
 			thresholds: {
 				perFile: true, // Enforce thresholds per file instead of globally
