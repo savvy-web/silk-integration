@@ -15,8 +15,6 @@ export interface FinaleAct {
 }
 
 export class CircusGrandFinale {
-	private acts: FinaleAct[] = [];
-
 	choreographMultiRingSpectacle(): void {
 		// Synchronize all circus rings for the grand conclusion
 	}

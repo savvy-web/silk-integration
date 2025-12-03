@@ -15,8 +15,6 @@ export interface SpectacleTimeline {
 }
 
 export class GrandSpectacleCoordinator {
-	private timeline: SpectacleTimeline[] = [];
-
 	scheduleIntergalacticIntermission(): void {
 		// Synchronize snack deliveries with dramatic pauses
 	}

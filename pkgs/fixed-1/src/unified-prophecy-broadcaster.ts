@@ -15,12 +15,12 @@ export interface ProphecyBroadcast {
 }
 
 export class UnifiedProphecyBroadcaster {
-	broadcastToAllVenues(prophecy: string): ProphecyBroadcast[] {
+	broadcastToAllVenues(_prophecy: string): ProphecyBroadcast[] {
 		// Beam prophecies across the cosmic circus theatre
 		return [];
 	}
 
-	scheduleDramaticReveal(timing: Date): void {
+	scheduleDramaticReveal(_timing: Date): void {
 		// Coordinate with theatrical pause managers
 	}
 }

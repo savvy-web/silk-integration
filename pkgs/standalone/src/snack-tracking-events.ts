@@ -5,7 +5,7 @@
  * This is like Uber Eats but for the ENTIRE UNIVERSE!
  */
 
-import type { GalacticCoordinates, SnackLocation } from "./galactic-gps-api.js";
+import type { SnackLocation } from "./galactic-gps-api.js";
 
 export type SnackEventType =
 	| "snack:prepared" // Chef says it's ready!

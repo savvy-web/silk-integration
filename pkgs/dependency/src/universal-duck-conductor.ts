@@ -15,8 +15,6 @@ export interface DuckSection {
 }
 
 export class UniversalDuckConductor {
-	private sections: DuckSection[] = [];
-
 	conductGrandDebugSymphony(): void {
 		// Synchronize quacks across all cosmic venues
 	}
