@@ -49,4 +49,4 @@ jobs:
           claude-review-pat: ${{ secrets.CLAUDE_REVIEW_PAT }}
           dry-run: ${{ inputs.dry_run || 'false' }}
           custom-registries: |
-            https://npm.savvyweb.dev/=${{ secrets.SAVVYWEB_NPM_AUTH_TOKEN }}
+            https://registry.savvyweb.dev/=${{ secrets.SAVVYWEB_NPM_AUTH_TOKEN }}

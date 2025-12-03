@@ -47,7 +47,7 @@
 				"protocol": "npm",
 				"directory": "dist/npm",
 				"access": "public",
-				"registry": "https://npm.savvyweb.dev/"
+				"registry": "https://registry.savvyweb.dev/"
 			}
 		]
 	}
