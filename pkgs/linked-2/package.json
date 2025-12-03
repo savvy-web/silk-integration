@@ -1,7 +1,7 @@
 {
 	"name": "@savvy-web/linked-2",
 	"description": "Second package in the linked group (depends on dependency)",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"private": true,
 	"type": "module",
 	"repository": {
