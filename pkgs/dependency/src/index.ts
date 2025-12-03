@@ -1,3 +1,5 @@
+export * from "./universal-duck-conductor.js";
+
 export type SharedValue = string | number;
 
 /**
