@@ -1,5 +1,40 @@
 # @savvy-web/dependency-package
 
+## 0.4.0
+
+### Minor Changes
+
+- 504972f: # The Grand Unified Cosmic Circus Theatre
+
+  Witness the most AMBITIOUS integration in the multiverse! Six packages unite in spectacular harmony:
+
+  **Interstellar Snack Delivery** now coordinates galaxy-wide intermissions with the new Grand Spectacle Coordinator, ensuring perfectly-timed refreshments during dramatic pauses across all solar systems.
+
+  **Sentient Rubber Duck Debugging Institute** introduces the Universal Duck Conductor, orchestrating synchronized quacking across all cosmic venues for maximum debugging efficiency.
+
+  **Mystical Crystal Ball Prophecies** broadcasts predictions to every corner of the theatre with the Unified Prophecy Broadcaster, timing revelations for maximum dramatic impact.
+
+  **Moonlight-Powered Compilation** synchronizes lunar energy distribution via Celestial Compilation Sync, powering spectacular effects across all performance venues.
+
+  **Circus of Chaotic Components** brings the house down with the Circus Grand Finale, coordinating multi-ring spectacles and spring-loaded confetti (no gunpowder, we promise!).
+
+  **Theatre of Theatrical Types** manages the ultimate curtain call with the Theatre Finale Curtain, orchestrating cosmic standing ovations across the multiverse.
+
+  _The show must go on—and it's never been this ambitious!_
+
+### Patch Changes
+
+- 7c463f2: Unmasking the impostor ducks among us.
+
+  The Sentient Rubber Duck Debugging Institute has detected anomalies in the duck population. Some ducks have been offering debugging advice that leads developers in circles—literally, infinite loops. After extensive research involving acoustic analysis and staring contests, we can now verify duck authenticity through their squeaky signatures.
+
+  New capabilities:
+  - Squeaky signature verification analyzes harmonic overtones to detect genuine rubber
+  - Impostor duck detection identifies suspicious specimens with hollow squeaks
+  - Legitimacy test suite includes buoyancy analysis, texture verification, and the dreaded ocular response test
+
+  The ducks that remain after this purge will be the truest of debugging companions. Those that fail... well, the quarantine pond awaits.
+
 ## 0.3.0
 
 ### Minor Changes
