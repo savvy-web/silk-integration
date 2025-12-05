@@ -175,7 +175,7 @@ For each commit needed (per issue instructions):
    "@savvy-web/<package>": <patch|minor|major>
    ---
 
-   <type>: <brief summary in theme voice>
+   ## <brief summary in theme voice>
 
    <2-3 paragraphs of engaging, themed description for end users>
 
@@ -202,7 +202,7 @@ the body becomes the squashed commit message.
 **PR Title Rules:**
 
 - Must follow conventional commit format: `<type>(<scope>): <description>`
-- Description must start lowercase (no capital letters after the colon)
+- Description MUST start with lowercase (no capital letters after the colon)
 - Example: `fix(dependency): add rubber duck authenticity validation`
 
 **PR Body Rules:**
@@ -211,6 +211,8 @@ the body becomes the squashed commit message.
 - Plain text only with paragraphs and bullet points
 - Focus on technical details of what the PR accomplishes
 - Keep it concise - this becomes the commit message
+- Last visble line should indicate the tickets the PR will close, eg: `closes #123` or `closes #123, #456`
+- Include and invisible hidden comment `<!-- claude-generated-description -->` at the end to prevent regenerating the PR description
 
 Example:
 
@@ -223,7 +225,8 @@ ducks infiltrating debugging sessions.
 - Implement fake duck quarantine protocols
 - Add test utilities for validation system
 
-Closes #40
+closes #40
+<!-- claude-generated-description -->
 EOF
 )"
 ```
