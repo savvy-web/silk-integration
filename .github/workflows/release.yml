@@ -14,18 +14,13 @@ on:
         type: boolean
         default: true
 
-# Prevent concurrent release operations
-concurrency:
-  group: release-${{ github.ref }}
-  cancel-in-progress: false
-
 permissions:
   contents: read
   pull-requests: read
 
 jobs:
   control:
-    name: Check Release Phase
+    name: Detect Phase
     runs-on: ubuntu-latest
     outputs:
       phase: ${{ steps.control.outputs.phase }}
@@ -42,68 +37,20 @@ jobs:
         uses: savvy-web/workflow-control-action@main
 
   branch-management:
-    name: Manage Release Branch
+    name: Branch Management
     needs: control
     if: needs.control.outputs.phase == 'branch-management'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-          persist-credentials: true
-
-      - name: Setup runtime
-        id: runtime
-        uses: savvy-web/workflow-runtime-action@main
-
-      - name: Run release
-        uses: savvy-web/workflow-release-action@main
-        with:
-          phase: ${{ needs.control.outputs.phase }}
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
-          claude-review-pat: ${{ secrets.CLAUDE_REVIEW_PAT }}
-          dry-run: ${{ inputs.dry_run || 'false' }}
-          custom-registries: |
-            https://registry.savvyweb.dev/${{ secrets.SAVVYWEB_NPM_AUTH_TOKEN }}
+    uses: ./.github/workflows/release-branch.yml
+    with:
+      dry-run: ${{ inputs.dry_run || false }}
+    secrets: inherit
 
   publish:
-    name: Publish Packages
+    name: Publish
     needs: control
     if: needs.control.outputs.phase == 'publishing' || needs.control.outputs.phase == 'close-issues'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      id-token: write
-      packages: write
-      attestations: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          persist-credentials: true
-
-      - name: Setup runtime
-        id: runtime
-        uses: savvy-web/workflow-runtime-action@main
-
-      - name: Run release
-        uses: savvy-web/workflow-release-action@main
-        with:
-          phase: ${{ needs.control.outputs.phase }}
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
-          claude-review-pat: ${{ secrets.CLAUDE_REVIEW_PAT }}
-          dry-run: ${{ inputs.dry_run || 'false' }}
-          custom-registries: |
-            https://registry.savvyweb.dev/${{ secrets.SAVVYWEB_NPM_AUTH_TOKEN }}
+    uses: ./.github/workflows/release-publish.yml
+    with:
+      phase: ${{ needs.control.outputs.phase }}
+      dry-run: ${{ inputs.dry_run || false }}
+    secrets: inherit
