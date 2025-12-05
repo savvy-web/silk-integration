@@ -1,7 +1,7 @@
 {
 	"name": "@savvy-web/linked-1",
 	"description": "First package in the linked group",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"private": true,
 	"type": "module",
 	"repository": {
