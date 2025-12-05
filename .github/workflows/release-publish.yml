@@ -1,0 +1,66 @@
+name: Release Publishing
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Run in dry-run mode (preview only)
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  control:
+    name: Check Release Phase
+    runs-on: ubuntu-latest
+    outputs:
+      should_publish: ${{ steps.control.outputs.is_release_commit }}
+      phase: ${{ steps.control.outputs.phase }}
+      merged_pr: ${{ steps.control.outputs.merged_pr_number }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Detect workflow phase
+        id: control
+        uses: savvy-web/workflow-control-action@main
+
+  publish:
+    name: Publish Packages
+    needs: control
+    if: needs.control.outputs.should_publish == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+
+      - name: Setup runtime
+        id: runtime
+        uses: savvy-web/workflow-runtime-action@main
+
+      - name: Run release
+        uses: savvy-web/workflow-release-action@main
+        with:
+          phase: ${{ needs.control.outputs.phase }}
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude-review-pat: ${{ secrets.CLAUDE_REVIEW_PAT }}
+          dry-run: ${{ inputs.dry_run || 'false' }}
+          custom-registries: |
+            https://registry.savvyweb.dev/${{ secrets.SAVVYWEB_NPM_AUTH_TOKEN }}
