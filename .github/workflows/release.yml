@@ -14,14 +14,22 @@ on:
         type: boolean
         default: true
 
+# Permissions must include everything needed by called workflows
 permissions:
-  contents: read
-  pull-requests: read
+  contents: write
+  pull-requests: write
+  id-token: write
+  packages: write
+  attestations: write
 
 jobs:
   control:
     name: Detect Phase
     runs-on: ubuntu-latest
+    # Control job only needs read permissions
+    permissions:
+      contents: read
+      pull-requests: read
     outputs:
       phase: ${{ steps.control.outputs.phase }}
       should_continue: ${{ steps.control.outputs.should_continue }}
