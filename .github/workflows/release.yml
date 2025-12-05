@@ -22,7 +22,8 @@ permissions:
   checks: write
 
 jobs:
-  release:
+  workflow:
+    name: Workflow
     uses: savvy-web/release-dispatcher-action/.github/workflows/release.yml@main
     with:
       dry-run: ${{ inputs.dry_run || false }}
