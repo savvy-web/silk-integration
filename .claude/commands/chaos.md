@@ -57,6 +57,7 @@ Extract mood and optional issue number from: `$ARGUMENTS`
 3. **Create branch** from origin/main per ticket instructions
 4. **Make commits** with placeholder files and themed changesets
 5. **Push and create PR**
+    a. IMPORTANT: PR title must match commitlint style and cannot begin with a capital letter after scope
 
 ### Theme Reference
 
