@@ -19,13 +19,8 @@ export interface CannonMemorial {
 export const GRAND_CANNON_MEMORIAL: CannonMemorial = {
 	cannonName: "The Magnificent Blaster",
 	yearsOfService: 47,
-	notablePerformers: [
-		"Zephyrina the Fearless",
-		"Baron von Bounce",
-		"The Flying Piccolini Twins",
-	],
-	epitaph:
-		"It launched us toward our dreams, asking only for gunpowder in return.",
+	notablePerformers: ["Zephyrina the Fearless", "Baron von Bounce", "The Flying Piccolini Twins"],
+	epitaph: "It launched us toward our dreams, asking only for gunpowder in return.",
 };
 
 export function composeFarewellMessage(memorial: CannonMemorial): string {

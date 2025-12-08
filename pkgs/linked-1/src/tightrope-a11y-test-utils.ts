@@ -90,8 +90,8 @@ export function generateTestReport(results: A11yTestResult[]): string {
 		"│   Accessibility Test Report         │",
 		"│   Like petals on a quiet stream     │",
 		"├─────────────────────────────────────┤",
-		`│   Tests Passed: ${passed}/${total}`.padEnd(38) + "│",
-		`│   Harmony Level: ${complete}/${total} complete`.padEnd(38) + "│",
+		`${`│   Tests Passed: ${passed}/${total}`.padEnd(38)}│`,
+		`${`│   Harmony Level: ${complete}/${total} complete`.padEnd(38)}│`,
 		"╰─────────────────────────────────────╯",
 	].join("\n");
 }

@@ -27,17 +27,11 @@ export async function auditGunpowderUsage(): Promise<GunpowderAuditResult> {
 	};
 }
 
-export function removeGunpowderDependencies(
-	packageJson: Record<string, unknown>,
-): Record<string, unknown> {
+export function removeGunpowderDependencies(packageJson: Record<string, unknown>): Record<string, unknown> {
 	// One by one, we remove the explosive dependencies
 	// that once brought such dangerous joy
 	const cleaned = { ...packageJson };
-	delete (cleaned as Record<string, Record<string, unknown>>).dependencies?.[
-		"@circus/gunpowder"
-	];
-	delete (cleaned as Record<string, Record<string, unknown>>).dependencies?.[
-		"@circus/fuse-ignition"
-	];
+	delete (cleaned as Record<string, Record<string, unknown>>).dependencies?.["@circus/gunpowder"];
+	delete (cleaned as Record<string, Record<string, unknown>>).dependencies?.["@circus/fuse-ignition"];
 	return cleaned;
 }
