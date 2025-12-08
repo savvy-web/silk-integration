@@ -28,9 +28,9 @@ export interface LaunchParameters {
 }
 
 export class SpringSafetyValidator {
-	private readonly minNetDistance = 5;
-	private readonly maxTensionForNovice = 3000;
-	private readonly legendaryThreshold = 8000;
+	static readonly MIN_NET_DISTANCE = 5;
+	static readonly MAX_TENSION_FOR_NOVICE = 3000;
+	static readonly LEGENDARY_THRESHOLD = 8000;
 
 	/**
 	 * Validate launch parameters with UNCOMPROMISING safety standards!
@@ -62,13 +62,13 @@ export class SpringSafetyValidator {
 	}
 
 	private checkNetDistance(params: LaunchParameters): SafetyCheck {
-		const passed = params.netDistance >= this.minNetDistance;
+		const passed = params.netDistance >= SpringSafetyValidator.MIN_NET_DISTANCE;
 		return {
 			name: "Safety Net Distance",
 			passed,
 			details: passed
 				? `Net at ${params.netDistance}m - EXCELLENT positioning!`
-				: `Net at ${params.netDistance}m is too close! Minimum ${this.minNetDistance}m required.`,
+				: `Net at ${params.netDistance}m is too close! Minimum ${SpringSafetyValidator.MIN_NET_DISTANCE}m required.`,
 			severity: "critical",
 		};
 	}
@@ -114,10 +114,10 @@ export class SpringSafetyValidator {
 
 	private getMaxTensionForExperience(experience: LaunchParameters["performerExperience"]): number {
 		const limits: Record<LaunchParameters["performerExperience"], number> = {
-			novice: this.maxTensionForNovice,
+			novice: SpringSafetyValidator.MAX_TENSION_FOR_NOVICE,
 			intermediate: 5000,
 			expert: 7000,
-			legendary: this.legendaryThreshold,
+			legendary: SpringSafetyValidator.LEGENDARY_THRESHOLD,
 		};
 		return limits[experience];
 	}

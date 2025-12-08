@@ -35,7 +35,7 @@ export class ProgressiveVisionRenderer {
 	private readonly renderedFrames: Map<string, VisionFrame> = new Map();
 	private isRendering = false;
 
-	private readonly defaultOptions: RenderOptions = {
+	static readonly DEFAULT_OPTIONS: RenderOptions = {
 		maxConcurrentFrames: 4, // Don't overwhelm the GPU!
 		prioritizeClarity: true,
 		enableSparkles: true, // Of course!
@@ -50,7 +50,7 @@ export class ProgressiveVisionRenderer {
 		onProgress: (progress: RenderProgress) => void,
 		options: Partial<RenderOptions> = {},
 	): Promise<void> {
-		const opts = { ...this.defaultOptions, ...options };
+		const opts = { ...ProgressiveVisionRenderer.DEFAULT_OPTIONS, ...options };
 
 		// Sort frames by clarity if prioritizing (clearer visions first = happier users!)
 		const sortedFrames = opts.prioritizeClarity ? [...frames].sort((a, b) => b.clarity - a.clarity) : frames;

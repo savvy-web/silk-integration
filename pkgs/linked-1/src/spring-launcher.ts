@@ -14,4 +14,5 @@ export interface SpringConfig {
 
 export function springLaunch(config: SpringConfig): void {
 	// Placeholder for spring launch implementation
+	console.log(`Launching with tension: ${config.tension}, dampening: ${config.dampening}`);
 }
