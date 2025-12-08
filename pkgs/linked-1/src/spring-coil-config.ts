@@ -23,8 +23,6 @@ export const DEFAULT_SPRING_CONFIG: SpringCoilConfig = {
 	softLandingEnabled: true,
 };
 
-export function createSpringConfig(
-	overrides?: Partial<SpringCoilConfig>,
-): SpringCoilConfig {
+export function createSpringConfig(overrides?: Partial<SpringCoilConfig>): SpringCoilConfig {
 	return { ...DEFAULT_SPRING_CONFIG, ...overrides };
 }

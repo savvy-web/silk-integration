@@ -14,6 +14,7 @@ export interface TempehWhisper {
 
 export function listenToTempeh(tempehId: string): TempehWhisper | undefined {
 	// The tempeh speaks when it chooses, not when we ask
+	console.log(`Listening to tempeh ${tempehId}...`);
 	return undefined;
 }
 
