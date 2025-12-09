@@ -1,5 +1,66 @@
 # @savvy-web/linked-1
 
+## 5.0.0
+
+### Major Changes
+
+- 5b998c3: **Farewell to the Cannon: A Bittersweet Transition**
+
+  The circus tent has seen many wonders over the years, but few as magnificent as the thunder of the cannon launch. The smell of gunpowder, the deafening boom, the collective gasp from the crowd as performers arced through the spotlight - these moments were pure spectacle.
+
+  But all shows must eventually close.
+
+  The `launchFromCannon()` API has been retired in favor of the new `springLaunch()` system. It's safer, more reliable, and far less likely to require incident reports. The springs compress quietly, release smoothly, and deliver performers to their destinations with mathematical precision. Everything a modern circus needs.
+
+  Everything except the magic.
+
+  **Breaking Changes:**
+  - The `launchFromCannon()` function has been removed and will throw an error with a nostalgic message
+  - All launch operations must now use `springLaunch(target, mechanism)` with the new `SpringMechanism` interface
+  - Gunpowder dependencies have been removed from the package
+  - The thunderous applause will need to come from somewhere else now
+
+  **Migration Guide:**
+  We've included comprehensive migration utilities in the package. The `analyzeLegacyUsage()` function will help you identify cannon calls that need updating. The `MIGRATION_EXAMPLES` provide patterns for common scenarios.
+
+  ```ts
+  // The old way - we'll miss you, friend
+  import { launchFromCannon } from "@savvy-web/linked-1";
+  launchFromCannon(performer); // *BOOM* 💥
+
+  // The new way - practical, if less stirring
+  import { springLaunch, createSpringMechanism } from "@savvy-web/linked-1";
+  const mechanism = createSpringMechanism();
+  springLaunch(performer, mechanism); // *sproing*
+  ```
+
+  The circus continues. The performers still fly. The crowd still watches. But something has changed. Progress often comes with a price, and this time the price is wonder.
+
+  We hope the safety improvements bring comfort. We know they won't bring back the thunder.
+
+  Thank you, old cannon. Your service was spectacular while it lasted.
+
+### Minor Changes
+
+- 277bfbe: **Tightrope Walker Accessibility: So Many Things to Consider!**
+
+  Oh wow, where do we even start? The circus needs to be accessible to everyone, and that means... _deep breath_... we need ARIA labels, and screen reader announcements, and keyboard navigation, and testing with NVDA, JAWS, VoiceOver, and what if we missed something? What about the balance announcements? The safety net proximity warnings? The critical alerts?
+
+  We've added comprehensive accessibility features to the tightrope walker component, but honestly, accessibility is such a big topic and there's always more we could do. Are the labels descriptive enough? Will screen readers handle the live updates properly? What about users with both visual and auditory impairments? Should we add haptic feedback? What about-
+
+  _ahem_ Sorry. Let me try to focus:
+
+  **What we implemented (and hope it's enough):**
+  - ARIA label generation for balance status and net proximity
+  - Screen reader announcement system for real-time updates
+  - Comprehensive assistive technology testing framework
+  - WCAG 2.1 AA compliance validation utilities
+  - Keyboard navigation testing support
+
+  The tightrope walker now announces its balance status, warns about proximity to the safety net below, and provides critical alerts when things get dicey. We've tested with multiple assistive technologies (okay, we've set up the _framework_ for testing with multiple assistive technologies, there's always more testing to do).
+
+  Circus managers who use screen readers can now keep track of their performers' precarious positions and react accordingly. Is it perfect? Probably not. Is it better than before? Definitely. Are there edge cases we haven't considered? Almost certainly. Should we document all the possible failure modes? Maybe? Is this feature ready? We think so? Help?
+
 ## 4.0.0
 
 ### Major Changes
