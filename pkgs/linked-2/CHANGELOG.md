@@ -1,5 +1,11 @@
 # @savvy-web/linked-2
 
+## 5.0.1
+
+### Patch Changes
+
+- 13d1000: The applause cleanup fix arrives with a heavy heart. MonologueDelivery no longer hoards the echoes of past standing ovations - each performance's memory now fades gracefully into the theatrical mist, as all beautiful moments must. The stage is cleared, though perhaps we wish it weren't. Memory leaks patched, memories themselves released.
+
 ## 1.2.1
 
 ### Patch Changes
