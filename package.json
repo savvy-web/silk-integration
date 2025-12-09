@@ -40,7 +40,6 @@
 		"typecheck:ws": "bash lib/scripts/run-task-for-workspace.sh typecheck",
 		"vitest:all": "vitest --run"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.6",
 		"@changesets/cli": "^2.29.7",
@@ -56,6 +55,7 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.7",
 		"markdownlint-cli2": "^0.19.1",
+		"markdownlint-cli2-formatter-codequality": "^0.0.7",
 		"minimatch": "^10.1.1",
 		"prettier": "^3.6.2",
 		"sort-package-json": "3.4.0",
