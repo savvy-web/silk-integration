@@ -1,5 +1,12 @@
 # @savvy-web/standalone-package
 
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies [edbfb25]
+  - @savvy-web/dependency-package@0.5.0
+
 ## 0.8.1
 
 ### Patch Changes
