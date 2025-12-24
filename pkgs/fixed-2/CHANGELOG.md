@@ -1,5 +1,12 @@
 # @savvy-web/fixed-2
 
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies [edbfb25]
+  - @savvy-web/dependency-package@0.5.0
+
 ## 2.0.1
 
 ## 2.0.0
