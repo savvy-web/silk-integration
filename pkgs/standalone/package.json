@@ -1,7 +1,7 @@
 {
 	"name": "@savvy-web/standalone-package",
 	"description": "This package only depends on one internal pacckage",
-	"version": "0.9.1",
+	"version": "0.9.2",
 	"private": true,
 	"type": "module",
 	"authors": [

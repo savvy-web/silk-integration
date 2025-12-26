@@ -1,5 +1,12 @@
 # @savvy-web/linked-2
 
+## 5.0.9
+
+### Patch Changes
+
+- Updated dependencies [cb1cbf2]
+  - @savvy-web/dependency-package@0.10.0
+
 ## 5.0.8
 
 ### Patch Changes
