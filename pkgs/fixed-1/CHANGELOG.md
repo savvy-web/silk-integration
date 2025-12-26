@@ -1,5 +1,7 @@
 # @savvy-web/fixed-1
 
+## 2.0.4
+
 ## 2.0.3
 
 ### Patch Changes
