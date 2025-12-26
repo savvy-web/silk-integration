@@ -1,5 +1,12 @@
 # @savvy-web/standalone-package
 
+## 0.9.2
+
+### Patch Changes
+
+- Updated dependencies [cb1cbf2]
+  - @savvy-web/dependency-package@0.10.0
+
 ## 0.9.1
 
 ### Patch Changes
