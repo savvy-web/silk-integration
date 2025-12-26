@@ -1,5 +1,12 @@
 # @savvy-web/fixed-2
 
+## 2.1.0
+
+### Patch Changes
+
+- Updated dependencies [b3ddf87]
+  - @savvy-web/dependency-package@0.8.0
+
 ## 2.0.6
 
 ### Patch Changes
