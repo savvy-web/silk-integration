@@ -4,6 +4,14 @@
 	"version": "2.1.1",
 	"private": true,
 	"type": "module",
+	"authors": [
+		{
+			"name": "C. Spencer Beggs",
+			"email": "spencer@savvyweb.systems",
+			"url": "https://savvyweb.systems"
+		}
+	],
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/savvy-web/workflow-integration.git",
