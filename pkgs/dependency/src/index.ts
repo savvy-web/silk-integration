@@ -1,3 +1,4 @@
+export * from "./audio-calibration.js";
 export * from "./universal-duck-conductor.js";
 export * from "./volume-normalizer.js";
 
