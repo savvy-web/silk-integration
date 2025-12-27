@@ -7,7 +7,7 @@ import type { SpringMechanism } from "./spring-mechanism.js";
  * @deprecated The cannon API was deprecated in favor of this.
  * We miss the smoke and thunder, but safety regulations prevailed.
  */
-export function springLaunch(target: unknown, mechanism: SpringMechanism): void {
+export function springLaunch(_target: unknown, mechanism: SpringMechanism): void {
 	// Launch with spring tension instead of explosive force
 	// The crowd cheers less, but the insurance premiums smile
 	if (mechanism.safetyRelease) {

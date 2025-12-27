@@ -15,12 +15,12 @@ export interface ApplauseMemory {
  * Releases applause data from memory after the curtain falls.
  * A bittersweet necessity - letting go of the audience's adoration.
  */
-export function cleanupApplause(memories: ApplauseMemory[]): void {
+export function cleanupApplause(_memories: ApplauseMemory[]): void {
 	// Implementation would go here
 	// For now, this is a placeholder for the memory leak fix
 }
 
-export function shouldRetainApplause(memory: ApplauseMemory): boolean {
+export function shouldRetainApplause(_memory: ApplauseMemory): boolean {
 	// Even the most cherished ovations must eventually be forgotten
 	return false;
 }

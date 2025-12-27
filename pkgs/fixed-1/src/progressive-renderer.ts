@@ -20,7 +20,6 @@ export interface RenderOptions {
 
 export class ProgressiveRenderer {
 	private segments: ProphecySegment[] = [];
-	private renderQueue: ProphecySegment[] = [];
 
 	constructor(private options: RenderOptions) {}
 
@@ -47,7 +46,7 @@ export class ProgressiveRenderer {
 		return chunks;
 	}
 
-	private async renderChunk(chunk: ProphecySegment[]): Promise<void> {
+	private async renderChunk(_chunk: ProphecySegment[]): Promise<void> {
 		// Render chunk with memory optimization
 		return new Promise((resolve) => {
 			setTimeout(() => resolve(), 10);
