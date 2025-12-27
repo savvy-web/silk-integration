@@ -4,13 +4,11 @@
 	"version": "0.9.2",
 	"private": true,
 	"type": "module",
-	"authors": [
-		{
-			"name": "C. Spencer Beggs",
-			"email": "spencer@savvyweb.systems",
-			"url": "https://savvyweb.systems"
-		}
-	],
+	"author": {
+		"name": "C. Spencer Beggs",
+		"email": "spencer@savvyweb.systems",
+		"url": "https://savvyweb.systems"
+	},
 	"license": "MIT",
 	"repository": {
 		"type": "git",
