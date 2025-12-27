@@ -1,4 +1,5 @@
 export * from "./universal-duck-conductor.js";
+export * from "./volume-normalizer.js";
 
 export type SharedValue = string | number;
 
