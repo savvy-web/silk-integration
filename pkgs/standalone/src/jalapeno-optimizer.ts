@@ -11,7 +11,7 @@ export interface JalapenoOptimization {
 	quantumEntanglement: boolean;
 }
 
-export function optimizeJalapenoDistribution(currentPattern: string): JalapenoOptimization {
+export function optimizeJalapenoDistribution(_currentPattern: string): JalapenoOptimization {
 	// TODO: Implement optimization algorithms
 	return {
 		distributionPattern: "spiral",

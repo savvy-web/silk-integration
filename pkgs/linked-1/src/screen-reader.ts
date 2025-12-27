@@ -6,10 +6,6 @@
  * Provides real-time updates on performer status
  */
 export class ScreenReaderAnnouncer {
-	constructor() {
-		// Placeholder: would create live region element
-	}
-
 	/**
 	 * Announce balance change to screen readers
 	 */

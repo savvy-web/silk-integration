@@ -35,7 +35,7 @@ export function testWithAssistiveTech(config: AssistiveTechConfig): TestResult {
 /**
  * Validate ARIA labels meet WCAG 2.1 AA standards
  */
-export function validateWCAGCompliance(element: unknown): boolean {
+export function validateWCAGCompliance(_element: unknown): boolean {
 	// Placeholder implementation
 	// Would check contrast ratios, label presence, role accuracy, etc.
 	return true;

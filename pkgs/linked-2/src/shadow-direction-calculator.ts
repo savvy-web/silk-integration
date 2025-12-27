@@ -14,7 +14,7 @@ export interface SunPosition {
 	azimuth: number;
 }
 
-export function calculateShadowDirection(sunPosition: SunPosition, spotlightAngle: number): ShadowVector {
+export function calculateShadowDirection(_sunPosition: SunPosition, _spotlightAngle: number): ShadowVector {
 	// Placeholder for shadow direction calculation
 	// Will properly account for afternoon sun positioning
 	return {

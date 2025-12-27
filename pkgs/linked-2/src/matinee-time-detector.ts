@@ -8,7 +8,7 @@ export interface MatineeTimeConfig {
 	endHour: number;
 }
 
-export function isMatineeTime(config: MatineeTimeConfig): boolean {
+export function isMatineeTime(_config: MatineeTimeConfig): boolean {
 	// Placeholder for matinee time detection
 	return false;
 }
