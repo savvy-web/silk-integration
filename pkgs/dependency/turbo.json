@@ -2,143 +2,43 @@
 	"$schema": "https://turborepo.com/schema.v2.json",
 	"extends": ["//"],
 	"tasks": {
-		"build": {
-			"dependsOn": ["build:dev", "build:npm"],
-			"inputs": [
-				"$TURBO_DEFAULT$",
-				"$TURBO_ROOT$/package.json",
-				"$TURBO_ROOT$/pnpm-lock.yaml",
-				"$TURBO_ROOT$/pnpm-workspace.yaml",
-				"package.json",
-				"tsconfig.json",
-				"*.ts",
-				"types/*.d.ts",
-				"src/**/*",
-				"lib/**/*",
-				"public/**/*",
-				"rslib.config.ts",
-				"README.md",
-				"LICENSE"
-			],
-			"outputLogs": "new-only",
-			"outputs": ["dist/dev/**", "dist/.tsbuildinfo.*", ".rslib/declarations/**"]
-		},
 		"build:dev": {
-			"dependsOn": ["typecheck"],
+			"cache": true,
+			"dependsOn": ["types:check"],
 			"inputs": [
 				"$TURBO_DEFAULT$",
 				"$TURBO_ROOT$/package.json",
 				"$TURBO_ROOT$/pnpm-lock.yaml",
 				"$TURBO_ROOT$/pnpm-workspace.yaml",
 				"package.json",
+				"rslib.config.ts",
 				"tsconfig.json",
-				"*.ts",
-				"types/*.d.ts",
-				"src/**/*",
-				"lib/**/*",
-				"!src/api-extractor-*.ts",
-				"public/**/*",
+				"src/**/*.ts",
 				"README.md",
 				"LICENSE"
 			],
-			"outputLogs": "new-only",
-			"outputs": ["dist/dev/**", "dist/.tsbuildinfo.dev.*", ".rslib/declarations/dev/**"]
+			"outputLogs": "full",
+			"outputs": ["dist/dev/**", ".rslib/declarations/dev/**"]
 		},
-		"build:npm": {
-			"dependsOn": ["typecheck"],
+		"build:prod": {
+			"cache": true,
+			"dependsOn": ["types:check"],
 			"inputs": [
 				"$TURBO_DEFAULT$",
 				"$TURBO_ROOT$/package.json",
 				"$TURBO_ROOT$/pnpm-lock.yaml",
 				"$TURBO_ROOT$/pnpm-workspace.yaml",
 				"package.json",
+				"rslib.config.ts",
 				"tsconfig.json",
-				"*.ts",
-				"types/*.d.ts",
-				"src/**/*",
-				"lib/**/*",
-				"!src/api-extractor-*.ts",
-				"public/**/*",
+				"src/**/*.ts",
 				"README.md",
 				"LICENSE"
 			],
-			"outputLogs": "new-only",
-			"outputs": ["dist/npm/**", "dist/.tsbuildinfo.dev.*", ".rslib/declarations/npm/**"]
-		},
-		"lint": {
-			"inputs": [
-				"$TURBO_DEFAULT$",
-				"$TURBO_ROOT$/package.json",
-				"$TURBO_ROOT$/pnpm-lock.yaml",
-				"$TURBO_ROOT$/pnpm-workspace.yaml",
-				"*.ts",
-				"*.js",
-				"*.tsx",
-				"*.jsx",
-				"*.json",
-				"*.jsonc",
-				"src/**/*.ts",
-				"bin/**/*.ts"
-			],
-			"outputLogs": "new-only"
-		},
-		"lint:fix": {
-			"cache": false,
-			"inputs": [
-				"$TURBO_DEFAULT$",
-				"$TURBO_ROOT$/package.json",
-				"$TURBO_ROOT$/pnpm-lock.yaml",
-				"$TURBO_ROOT$/pnpm-workspace.yaml",
-				"*.ts",
-				"*.js",
-				"*.tsx",
-				"*.jsx",
-				"*.json",
-				"*.jsonc",
-				"src/**/*.ts",
-				"bin/**/*.ts"
-			],
-			"outputLogs": "new-only"
-		},
-		"test": {
-			"cache": false,
-			"dependsOn": ["typecheck"],
-			"inputs": [
-				"$TURBO_DEFAULT$",
-				"$TURBO_ROOT$/package.json",
-				"$TURBO_ROOT$/pnpm-lock.yaml",
-				"$TURBO_ROOT$/pnpm-workspace.yaml",
-				"package.json",
-				"tsconfig.json",
-				"__test__/**/*",
-				"*.ts",
-				"types/*.d.ts",
-				"src/**/*",
-				"public/**/*"
-			],
 			"outputLogs": "full",
-			"outputs": ["$TURBO_ROOT$/.coverage/**"]
+			"outputs": ["dist/npm/**", ".rslib/declarations/npm/**"]
 		},
-		"test:related": {
-			"cache": false,
-			"dependsOn": ["typecheck"],
-			"inputs": [
-				"$TURBO_DEFAULT$",
-				"$TURBO_ROOT$/package.json",
-				"$TURBO_ROOT$/pnpm-lock.yaml",
-				"$TURBO_ROOT$/pnpm-workspace.yaml",
-				"package.json",
-				"tsconfig.json",
-				"__test__/**/*",
-				"*.ts",
-				"types/*.d.ts",
-				"src/**/*",
-				"public/**/*"
-			],
-			"outputLogs": "full",
-			"outputs": []
-		},
-		"typecheck": {
+		"types:check": {
 			"cache": true,
 			"dependsOn": ["^build:dev"],
 			"inputs": [
@@ -146,17 +46,12 @@
 				"$TURBO_ROOT$/package.json",
 				"$TURBO_ROOT$/pnpm-lock.yaml",
 				"$TURBO_ROOT$/pnpm-workspace.yaml",
-				"$TURBO_ROOT$/package.json",
-				"$TURBO_ROOT$/pnpm-lock.yaml",
-				"$TURBO_ROOT$/pnpm-workspace.yaml",
-				"**/*.ts",
-				"!src/api-extractor-*.ts",
-				"**/*.tsx",
-				"**/*.mts",
+				"package.json",
+				"rslib.config.ts",
 				"tsconfig.json",
-				"package.json"
+				"src/**/*.ts"
 			],
-			"outputLogs": "new-only",
+			"outputLogs": "errors-only",
 			"outputs": ["dist/.tsbuildinfo.lib"]
 		}
 	}

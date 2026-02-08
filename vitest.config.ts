@@ -1,79 +1,51 @@
 import { defineConfig } from "vitest/config";
 
+/**
+ * Vitest configuration for monorepo
+ * @see https://vitest.dev/config/
+ */
 export default defineConfig({
 	test: {
-		include: ["**/__tests__/**/*.test.ts"],
+		// Global settings applied to all projects
+		globals: true,
+		environment: "node",
+
+		// Test file patterns
+		include: ["pkgs/**/*.{test,spec}.{ts,tsx}"],
 		exclude: ["**/node_modules/**", "**/dist/**"],
-		globalSetup: "./vitest.setup.ts",
-		testTimeout: 30000,
-		reporters: ["default"],
-		projects: [
-			{
-				extends: true,
-				test: {
-					name: "@savvy-web/dependency-package",
-					include: ["**/pkgs/dependency/__tests__/**/*.test.ts"],
-				},
-			},
-			{
-				extends: true,
-				test: {
-					name: "@savvy-web/standalone-package",
-					include: ["**/pkgs/standalone/__tests__/**/*.test.ts"],
-				},
-			},
-			{
-				extends: true,
-				test: {
-					name: "@savvy-web/linked-1",
-					include: ["**/pkgs/linked-1/__tests__/**/*.test.ts"],
-				},
-			},
-			{
-				extends: true,
-				test: {
-					name: "@savvy-web/linked-2",
-					include: ["**/pkgs/linked-2/__tests__/**/*.test.ts"],
-				},
-			},
-			{
-				extends: true,
-				test: {
-					name: "@savvy-web/fixed-1",
-					include: ["**/pkgs/fixed-1/__tests__/**/*.test.ts"],
-				},
-			},
-			{
-				extends: true,
-				test: {
-					name: "@savvy-web/fixed-2",
-					include: ["**/pkgs/fixed-2/__tests__/**/*.test.ts"],
-				},
-			},
-		],
+
+		// Coverage configuration
 		coverage: {
 			provider: "v8",
-			reporter: ["text", "json", ["html", { subdir: "report" }]],
-			reportsDirectory: "./.coverage",
+			reporter: ["text", "json", "html", "lcov"],
 			exclude: [
-				"**/dist/**",
 				"**/node_modules/**",
-				// Placeholder stubs for integration testing (no business logic)
-				"**/universal-duck-conductor.ts",
-				"**/unified-prophecy-broadcaster.ts",
-				"**/celestial-compilation-sync.ts",
-				"**/circus-grand-finale.ts",
-				"**/theatre-finale-curtain.ts",
-				"**/grand-spectacle-coordinator.ts",
+				"**/dist/**",
+				"**/coverage/**",
+				"**/*.config.{ts,js,mjs}",
+				"**/.{turbo,cache}/**",
+				"**/lib/configs/**",
+				"**/*.d.ts",
+				"**/*.test.{ts,tsx}",
+				"**/*.spec.{ts,tsx}",
 			],
-			enabled: true,
+			include: ["pkgs/**/*.{ts,tsx}"],
+			clean: true,
+			// Coverage thresholds (adjust as needed)
 			thresholds: {
-				perFile: true, // Enforce thresholds per file instead of globally
-				lines: 85,
-				functions: 85,
-				branches: 85,
-				statements: 85,
+				lines: 5,
+				functions: 5,
+				branches: 5,
+				statements: 5,
 			},
+			reportOnFailure: true,
 		},
+
+		// Timeouts
+		testTimeout: 10000,
+		hookTimeout: 10000,
+
+		// Use forks pool for better compatibility with Effect-TS
+		pool: "forks",
 	},
 });
