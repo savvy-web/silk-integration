@@ -14,7 +14,7 @@
 		"build:prod": "turbo run build:prod --log-order=grouped",
 		"ci:build": "CI=\"true\" turbo run build:dev build:prod --log-order=grouped --output-logs=full",
 		"ci:test": "CI=\"true\" turbo run vitest:all --log-prefix=none --log-order=grouped",
-		"ci:version": "changeset version && biome format --write .",
+		"ci:version": "savvy-changesets version && biome format --write .",
 		"lint": "biome check --max-diagnostics=none",
 		"lint:fix": "biome check --write --max-diagnostics=none",
 		"lint:fix:unsafe": "biome check --write --unsafe --max-diagnostics=none",
