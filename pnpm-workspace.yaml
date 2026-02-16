@@ -1,7 +1,7 @@
 packages:
   - pkgs/*
 configDependencies:
-  "@savvy-web/pnpm-plugin-silk": 0.5.1+sha512-Ldqg0b7SdIL2+4KruvKk7cQQZT59cQAWu3DT84Ehl4juXDrfJQq6Hir5kQwREO344iiN37AzVFR7ISs7NNF8Ww==
+  "@savvy-web/pnpm-plugin-silk": 0.5.3+sha512-k46JaTJ1efOFF2VV5MlD4btmPcblV5+yhmaw+IP/XOvvNCJWx3qgQSOgllqvQCAQ1UFDLyIjtwYpauSOGkwNwA==
 ignoredBuiltDependencies:
   - core-js
 loglevel: error
