@@ -1,6 +1,8 @@
 {
 	"$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/v0.20.0/schema/markdownlint-cli2-config-schema.json",
-	"globs": ["**/*.{md,mdx}"],
+	"globs": [
+		"**/*.{md,mdx}"
+	],
 	"fix": true,
 	"gitignore": true,
 	"noBanner": true,
@@ -12,6 +14,9 @@
 		"**/dist",
 		"**/CHANGELOG.md",
 		"**/.claude/plans"
+	],
+	"customRules": [
+		"@savvy-web/changesets/markdownlint"
 	],
 	"config": {
 		"default": true,
@@ -50,7 +55,14 @@
 		"MD031": true,
 		"MD032": true,
 		"MD033": {
-			"allowed_elements": ["br", "details", "summary", "img", "sup", "sub"]
+			"allowed_elements": [
+				"br",
+				"details",
+				"summary",
+				"img",
+				"sup",
+				"sub"
+			]
 		},
 		"MD034": true,
 		"MD035": true,
@@ -80,6 +92,9 @@
 		"MD059": true,
 		"MD060": {
 			"style": "compact"
-		}
+		},
+		"changeset-heading-hierarchy": false,
+		"changeset-required-sections": false,
+		"changeset-content-structure": false
 	}
 }
