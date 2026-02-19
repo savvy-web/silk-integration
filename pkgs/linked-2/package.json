@@ -28,12 +28,12 @@
 		"@savvy-web/dependency-package": "workspace:*"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "catalog:silk",
-		"@rslib/core": "catalog:silk",
-		"@savvy-web/rslib-builder": "^0.12.1",
-		"@types/node": "catalog:silk",
-		"@typescript/native-preview": "catalog:silk",
-		"typescript": "catalog:silk",
+		"@microsoft/api-extractor": "catalog:silkPeers",
+		"@rslib/core": "catalog:silkPeers",
+		"@savvy-web/rslib-builder": "^0.14.4",
+		"@types/node": "catalog:silkPeers",
+		"@typescript/native-preview": "catalog:silkPeers",
+		"typescript": "catalog:silkPeers",
 		"vitest": "catalog:silk"
 	},
 	"engines": {

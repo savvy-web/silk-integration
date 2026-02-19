@@ -2,18 +2,17 @@
 	"$schema": "https://turborepo.com/schema.v2.json",
 	"globalPassThroughEnv": ["GITHUB_ACTIONS", "CI"],
 	"tasks": {
-		"types:check": {
+		"//#types:check": {
 			"cache": true,
 			"dependsOn": [],
-			"inputs": ["*.ts", "lib/**/*.ts", "lib/**/*.mts"],
+			"inputs": ["$TURBO_DEFAULT$", "!**/*.md", "!.changeset/**", "!.github/**"],
 			"outputLogs": "errors-only",
 			"outputs": []
 		},
-		"vitest:all": {
+		"//#vitest:all": {
 			"cache": false,
-			"dependsOn": ["types:check"],
-			"outputLogs": "full",
-			"outputs": [".coverage/**"]
+			"dependsOn": ["//#types:check"],
+			"outputLogs": "full"
 		}
 	}
 }

@@ -1,9 +1,5 @@
 packages:
   - pkgs/*
+autoInstallPeers: true
 configDependencies:
-  "@savvy-web/pnpm-plugin-silk": 0.5.1+sha512-Ldqg0b7SdIL2+4KruvKk7cQQZT59cQAWu3DT84Ehl4juXDrfJQq6Hir5kQwREO344iiN37AzVFR7ISs7NNF8Ww==
-ignoredBuiltDependencies:
-  - core-js
-loglevel: error
-onlyBuiltDependencies:
-  - esbuild
+  "@savvy-web/pnpm-plugin-silk": 0.6.3+sha512-P2oTH3CRDxvEqVtavf5adiX2B4MQGU2GA2INDBwrDHiPJLWke3Sjpqr5tgba3+gc1wyDS5YgELsWizAr94WkDQ==
