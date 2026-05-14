@@ -1,6 +1,6 @@
 {
 	"name": "@savvy-web/fixed-2",
-	"version": "2.1.4",
+	"version": "2.1.5",
 	"private": true,
 	"description": "Second package in the fixed group (depends on dependency)",
 	"repository": {
@@ -48,12 +48,6 @@
 				"directory": "dist/npm",
 				"access": "public",
 				"provenance": true
-			},
-			{
-				"protocol": "npm",
-				"directory": "dist/npm",
-				"access": "public",
-				"registry": "https://registry.savvyweb.dev/"
 			}
 		]
 	}

@@ -1,6 +1,6 @@
 {
 	"name": "@savvy-web/standalone-package",
-	"version": "0.9.3",
+	"version": "0.9.4",
 	"private": true,
 	"description": "This package only depends on one internal pacckage",
 	"repository": {
@@ -48,12 +48,6 @@
 				"directory": "dist/npm",
 				"access": "public",
 				"provenance": true
-			},
-			{
-				"protocol": "npm",
-				"directory": "dist/npm",
-				"access": "public",
-				"registry": "https://registry.savvyweb.dev/"
 			}
 		]
 	}

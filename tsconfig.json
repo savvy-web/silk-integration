@@ -1,34 +1,15 @@
 {
-	"$schema": "https://json.schemastore.org/tsconfig.json",
+	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
 		"composite": true,
 		"declaration": true,
 		"module": "node20",
 		"outDir": "dist",
 		"resolveJsonModule": true,
-		"skipLibCheck": true,
 		"strict": true,
 		"strictNullChecks": true,
-		"target": "es2023"
+		"target": "es2023",
+		"types": ["node"]
 	},
-	"references": [
-		{
-			"path": "./pkgs/dependency"
-		},
-		{
-			"path": "./pkgs/fixed-1"
-		},
-		{
-			"path": "./pkgs/fixed-2"
-		},
-		{
-			"path": "./pkgs/linked-1"
-		},
-		{
-			"path": "./pkgs/linked-2"
-		},
-		{
-			"path": "./pkgs/standalone"
-		}
-	]
+	"include": ["*.ts", "lib/**/*.ts", "lib/**/*.mts"]
 }

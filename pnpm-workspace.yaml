@@ -1,4 +1,5 @@
 packages:
+  - .
   - pkgs/*
 autoInstallPeers: true
 configDependencies:

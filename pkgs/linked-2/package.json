@@ -1,6 +1,6 @@
 {
 	"name": "@savvy-web/linked-2",
-	"version": "5.0.10",
+	"version": "5.0.11",
 	"private": true,
 	"description": "Second package in the linked group (depends on dependency)",
 	"repository": {
@@ -48,12 +48,6 @@
 				"directory": "dist/npm",
 				"access": "public",
 				"provenance": true
-			},
-			{
-				"protocol": "npm",
-				"directory": "dist/npm",
-				"access": "public",
-				"registry": "https://registry.savvyweb.dev/"
 			}
 		]
 	}
