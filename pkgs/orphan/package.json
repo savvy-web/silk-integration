@@ -25,13 +25,11 @@
 		"types:check": "tsgo --noEmit"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "catalog:silkPeers",
-		"@rslib/core": "catalog:silkPeers",
+		"@rslib/core": "^0.21.5",
 		"@savvy-web/rslib-builder": "^0.20.3",
 		"@types/node": "catalog:silkPeers",
-		"@typescript/native-preview": "catalog:silkPeers",
-		"typescript": "catalog:silkPeers",
-		"vitest": "catalog:silk"
+		"@typescript/native-preview": "catalog:silk",
+		"typescript": "catalog:silk"
 	},
 	"engines": {
 		"node": ">=20.0.0"
