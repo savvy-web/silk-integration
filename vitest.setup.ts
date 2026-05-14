@@ -7,5 +7,3 @@
  * cache clearing) is handled by the KcovCoverageProvider.
  * This file is kept for potential future global setup needs.
  */
-
-console.log("Global Vitest setup running...");
