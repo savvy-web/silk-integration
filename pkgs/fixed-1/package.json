@@ -22,6 +22,7 @@
 		"build:dev": "rslib build --config-loader native --env-mode dev",
 		"build:inspect": "rslib inspect --config-loader native --env-mode npm --verbose",
 		"build:prod": "rslib build --config-loader native --env-mode npm",
+		"prepare": "pnpm run build:dev",
 		"types:check": "tsgo --noEmit"
 	},
 	"devDependencies": {

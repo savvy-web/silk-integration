@@ -13,7 +13,7 @@
 		"build:dev": "turbo run build:dev --log-order=grouped",
 		"build:prod": "turbo run build:prod --log-order=grouped",
 		"ci:build": "CI=\"true\" turbo run build:dev build:prod --log-order=grouped --output-logs=full",
-		"ci:test": "CI=\"true\" turbo run //#vitest:all --log-prefix=none --log-order=grouped",
+		"ci:test": "CI=\"true\" vitest --run",
 		"ci:version": "savvy-changesets version && biome format --write .",
 		"lint": "biome check --max-diagnostics=none",
 		"lint:fix": "biome check --write --max-diagnostics=none",
@@ -22,12 +22,11 @@
 		"lint:md:fix": "markdownlint-cli2  --config './lib/configs/.markdownlint-cli2.jsonc' --fix",
 		"lint:tsdoc": "eslint --config ./lib/configs/eslint.config.ts --ignore-pattern '**/*.test.ts'",
 		"prepare": "husky",
-		"test": "turbo run vitest:all --log-prefix=none --log-order=grouped",
-		"test:coverage": "vitest run --coverage",
+		"reset": "node lib/configs/hard-reset.ts",
+		"test": "vitest --run",
 		"test:watch": "vitest --watch",
 		"typecheck": "turbo run types:check --log-prefix=none --log-order=grouped",
-		"types:check": "tsgo --noEmit",
-		"vitest:all": "vitest --run"
+		"types:check": "tsgo --noEmit"
 	},
 	"devDependencies": {
 		"@savvy-web/changesets": "^0.9.0",
