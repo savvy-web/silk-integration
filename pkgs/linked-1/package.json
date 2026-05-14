@@ -27,7 +27,7 @@
 	"devDependencies": {
 		"@microsoft/api-extractor": "catalog:silkPeers",
 		"@rslib/core": "catalog:silkPeers",
-		"@savvy-web/rslib-builder": "^0.14.4",
+		"@savvy-web/rslib-builder": "^0.20.3",
 		"@types/node": "catalog:silkPeers",
 		"@typescript/native-preview": "catalog:silkPeers",
 		"typescript": "catalog:silkPeers",
