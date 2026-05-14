@@ -1,6 +1,6 @@
 {
 	"name": "@savvy-web/dependency-package",
-	"version": "0.10.1",
+	"version": "0.10.2",
 	"private": true,
 	"description": "Shared dependency package used by other packages in the workspace",
 	"repository": {
@@ -45,12 +45,6 @@
 				"directory": "dist/npm",
 				"access": "public",
 				"provenance": true
-			},
-			{
-				"protocol": "npm",
-				"directory": "dist/npm",
-				"access": "public",
-				"registry": "https://registry.savvyweb.dev/"
 			}
 		]
 	}
