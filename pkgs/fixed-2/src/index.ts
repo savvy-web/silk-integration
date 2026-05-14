@@ -1,7 +1,5 @@
 import { SHARED_CONSTANT, getSharedValue } from "@savvy-web/dependency-package";
 
-export * from "./celestial-compilation-sync.js";
-
 export type FixedTwoValue = string;
 
 /**
