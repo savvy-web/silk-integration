@@ -1,8 +1,9 @@
-name: Workflow
+name: Release
 on:
   push:
     branches:
       - main
+      - changeset-release/main
   pull_request:
     branches:
       - main
@@ -21,8 +22,8 @@ concurrency:
   group: release-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: true
 jobs:
-  workflow:
-    name: Workflow
+  release:
+    name: Release
     uses: savvy-web/.github/.github/workflows/release.yml@dev
     permissions:
       contents: write
