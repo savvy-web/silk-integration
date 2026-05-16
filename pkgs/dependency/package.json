@@ -1,6 +1,6 @@
 {
 	"name": "@savvy-web/dependency-package",
-	"version": "0.10.2",
+	"version": "0.10.3",
 	"private": true,
 	"description": "Shared dependency package used by other packages in the workspace",
 	"repository": {
