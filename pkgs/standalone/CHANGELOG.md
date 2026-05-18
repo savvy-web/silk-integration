@@ -1,5 +1,11 @@
 # @savvy-web/standalone-package
 
+## 0.9.6
+
+### Other
+
+* [`ab04f48`](https://github.com/savvy-web/workflow-runtime-action/commit/ab04f488ebaf54d6379c5626a86ddb18dce16bbe) This is a test
+
 ## 0.9.5
 
 ### Patch Changes
