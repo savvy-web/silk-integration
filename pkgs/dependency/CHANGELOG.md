@@ -1,5 +1,11 @@
 # @savvy-web/dependency-package
 
+## 1.0.0
+
+### Other
+
+* [`82a07cf`](https://github.com/savvy-web/silk-integration/commit/82a07cf9883ee725f07f23ae1340322766e100df) Test long pr commit title names
+
 ## 0.10.3
 
 ### Other
