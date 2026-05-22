@@ -1,5 +1,13 @@
 # @savvy-web/standalone-package
 
+## 0.10.1
+
+### Patch Changes
+
+| Dependency                    | Type       | Action  | From   | To    |
+| ----------------------------- | ---------- | ------- | ------ | ----- |
+| @savvy-web/dependency-package | dependency | updated | 0.10.3 | 1.0.0 |
+
 ## 0.10.0
 
 ### Other
