@@ -1,5 +1,11 @@
 # @savvy-web/standalone-package
 
+## 0.10.0
+
+### Other
+
+* [`e136f2e`](https://github.com/savvy-web/workflow-runtime-action/commit/e136f2e2d06f54685adc278946ff9f3bd7543766) Testing flow
+
 ## 0.9.6
 
 ### Other
