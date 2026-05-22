@@ -1,5 +1,13 @@
 # @savvy-web/fixed-2
 
+## 2.1.9
+
+### Patch Changes
+
+| Dependency                    | Type       | Action  | From  | To    |
+| ----------------------------- | ---------- | ------- | ----- | ----- |
+| @savvy-web/dependency-package | dependency | updated | 1.0.0 | 1.1.0 |
+
 ## 2.1.8
 
 ### Patch Changes
