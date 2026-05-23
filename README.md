@@ -1,6 +1,6 @@
 # workflow-integration
 
-A test repository for validating [workflow-release-action](https://github.com/savvy-web/workflow-release-action).
+A test repository for validating [silk-release-action](https://github.com/savvy-web/silk-release-action).
 
 ## What is this?
 
@@ -20,4 +20,4 @@ This monorepo simulates a realistic workspace with multiple packages to test aut
 
 Testing release automation is tricky - you need a real repository with real packages to verify that changesets, version bumps, and publishing work correctly. This repo provides that test bed without risking actual production packages.
 
-See [workflow-release-action#9](https://github.com/savvy-web/workflow-release-action/issues/9) for context.
+See [silk-release-action#9](https://github.com/savvy-web/silk-release-action/issues/9) for context.

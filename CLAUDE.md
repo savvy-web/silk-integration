@@ -1,8 +1,8 @@
 # Workflow Integration Test Repository
 
-This repository is a test bed for validating the [workflow-release-action](https://github.com/savvy-web/workflow-release-action) GitHub Action. It simulates a realistic monorepo with various package configurations to test changeset-based release workflows.
+This repository is a test bed for validating the [silk-release-action](https://github.com/savvy-web/silk-release-action) GitHub Action. It simulates a realistic monorepo with various package configurations to test changeset-based release workflows.
 
-Related issue: <https://github.com/savvy-web/workflow-release-action/issues/9>
+Related issue: <https://github.com/savvy-web/silk-release-action/issues/9>
 
 ## Repository Structure
 
@@ -100,10 +100,10 @@ pnpm changeset version
 
 ## Testing the Release Action
 
-This repo is designed to be pointed at by the workflow-release-action's build step. To test:
+This repo is designed to be pointed at by the silk-release-action's build step. To test:
 
 1. Create changesets in this repo for various packages
-2. Push to trigger the release workflow in workflow-release-action
+2. Push to trigger the release workflow in silk-release-action
 3. Verify that:
    - Linked packages version together correctly
    - Fixed packages maintain same version
