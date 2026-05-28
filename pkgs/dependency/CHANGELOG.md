@@ -16,13 +16,13 @@
 
 ### Other
 
-* [`343237d`](https://github.com/savvy-web/workflow-runtime-action/commit/343237d322390b7b3cf1e7bc7f6d2f98286e0aa8) This is just a test for the new release action system
+* [`343237d`](https://github.com/savvy-web/silk-runtime-action/commit/343237d322390b7b3cf1e7bc7f6d2f98286e0aa8) This is just a test for the new release action system
 
 ## 0.10.2
 
 ### Other
 
-* [`1f8dcbb`](https://github.com/savvy-web/workflow-runtime-action/commit/1f8dcbb41582fcf42d67541b2cc7b01f1ad95ad7) Test pr
+* [`1f8dcbb`](https://github.com/savvy-web/silk-runtime-action/commit/1f8dcbb41582fcf42d67541b2cc7b01f1ad95ad7) Test pr
 
 ## 0.10.1
 

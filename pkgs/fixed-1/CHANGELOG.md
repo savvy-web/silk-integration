@@ -8,7 +8,7 @@
 
 ### Other
 
-* [`3b99bbb`](https://github.com/savvy-web/workflow-runtime-action/commit/3b99bbb65bbd51d6d16fe7eb9f502b62667043b0) Testing release attestations
+* [`3b99bbb`](https://github.com/savvy-web/silk-runtime-action/commit/3b99bbb65bbd51d6d16fe7eb9f502b62667043b0) Testing release attestations
 
 ## 2.1.6
 

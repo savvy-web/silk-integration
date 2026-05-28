@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup runtime
-        uses: savvy-web/workflow-runtime-action@main
+        uses: savvy-web/silk-runtime-action@v1
 
       - name: Run release action (validation phase)
         uses: savvy-web/silk-release-action@dev

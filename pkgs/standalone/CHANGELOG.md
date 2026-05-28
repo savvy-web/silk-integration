@@ -20,13 +20,13 @@
 
 ### Other
 
-* [`e136f2e`](https://github.com/savvy-web/workflow-runtime-action/commit/e136f2e2d06f54685adc278946ff9f3bd7543766) Testing flow
+* [`e136f2e`](https://github.com/savvy-web/silk-runtime-action/commit/e136f2e2d06f54685adc278946ff9f3bd7543766) Testing flow
 
 ## 0.9.6
 
 ### Other
 
-* [`ab04f48`](https://github.com/savvy-web/workflow-runtime-action/commit/ab04f488ebaf54d6379c5626a86ddb18dce16bbe) This is a test
+* [`ab04f48`](https://github.com/savvy-web/silk-runtime-action/commit/ab04f488ebaf54d6379c5626a86ddb18dce16bbe) This is a test
 
 ## 0.9.5
 
@@ -40,7 +40,7 @@
 
 ### Other
 
-* [`d8fec5c`](https://github.com/savvy-web/workflow-runtime-action/commit/d8fec5cd1efd76482dc5a01d5c7e4bae7047ee65) Test dev release action
+* [`d8fec5c`](https://github.com/savvy-web/silk-runtime-action/commit/d8fec5cd1efd76482dc5a01d5c7e4bae7047ee65) Test dev release action
   | Dependency                    | Type       | Action  | From   | To     |
   | ----------------------------- | ---------- | ------- | ------ | ------ |
   | @savvy-web/dependency-package | dependency | updated | 0.10.1 | 0.10.2 |
