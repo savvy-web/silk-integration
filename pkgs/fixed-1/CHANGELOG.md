@@ -1,5 +1,11 @@
 # @savvy-web/fixed-1
 
+## 2.2.0
+
+### Other
+
+* [`c3ed426`](https://github.com/savvy-web/silk-integration/commit/c3ed4267176c1ff950175d6c3c9aefa31f5b6bd8) Test attestations
+
 ## 2.1.9
 
 ## 2.1.8
