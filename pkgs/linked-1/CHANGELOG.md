@@ -1,5 +1,11 @@
 # @savvy-web/linked-1
 
+## 5.0.15
+
+### Other
+
+* [`3afd482`](https://github.com/savvy-web/silk-integration/commit/3afd4826f663572aec93baee76e5c237de132e77) Local test
+
 ## 5.0.2
 
 ### Patch Changes
