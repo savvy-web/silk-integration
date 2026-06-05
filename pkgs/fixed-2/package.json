@@ -29,7 +29,7 @@
 	},
 	"devDependencies": {
 		"@rslib/core": "^0.22.0",
-		"@savvy-web/rslib-builder": "^0.20.11",
+		"@savvy-web/rslib-builder": "^0.21.3",
 		"@types/node": "catalog:silkPeers",
 		"@typescript/native-preview": "catalog:silk",
 		"typescript": "catalog:silk"

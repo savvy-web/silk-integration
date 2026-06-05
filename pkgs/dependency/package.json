@@ -22,11 +22,12 @@
 		"build:dev": "rslib build --config-loader native --env-mode dev",
 		"build:inspect": "rslib inspect --config-loader native --env-mode npm --verbose",
 		"build:prod": "rslib build --config-loader native --env-mode npm",
+		"prepare": "turbo run build:dev",
 		"types:check": "tsgo --noEmit"
 	},
 	"devDependencies": {
 		"@rslib/core": "^0.22.0",
-		"@savvy-web/rslib-builder": "^0.20.11",
+		"@savvy-web/rslib-builder": "^0.21.3",
 		"@types/node": "catalog:silkPeers",
 		"@typescript/native-preview": "catalog:silk",
 		"typescript": "catalog:silk"
