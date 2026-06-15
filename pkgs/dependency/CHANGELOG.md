@@ -1,5 +1,11 @@
 # @savvy-web/dependency-package
 
+## 1.1.2
+
+### Other
+
+* [`1b08ec4`](https://github.com/savvy-web/silk-integration/commit/1b08ec4073a7b50b3252f8f7f3963f99f038880e) Testing provancence logging
+
 ## 1.1.1
 
 ### Other
