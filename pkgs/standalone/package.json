@@ -2,7 +2,7 @@
 	"name": "@savvy-web/standalone-package",
 	"version": "0.10.5",
 	"private": true,
-	"description": "This package only depends on one internal pacckage",
+	"description": "This package only depends on one internal package",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/savvy-web/workflow-integration.git",
@@ -20,7 +20,6 @@
 	},
 	"scripts": {
 		"build:dev": "node savvy.build.ts --target dev",
-		"build:meta": "node savvy.build.ts --target meta",
 		"build:prod": "node savvy.build.ts --target prod",
 		"types:check": "tsgo --noEmit"
 	},

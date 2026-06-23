@@ -9,8 +9,8 @@
 	},
 	"type": "module",
 	"scripts": {
-		"build": "turbo run build:dev build:prod",
-		"ci:build": "CI=\"true\" turbo run build:dev build:prod",
+		"build": "turbo run build:dev build:prod --summarize --log-order=grouped --log-prefix=none",
+		"ci:build": "CI=\"true\" turbo run build:dev build:prod --summarize --log-order=grouped --log-prefix=none",
 		"ci:test": "CI=\"true\" vitest run --coverage",
 		"ci:version": "savvy changeset version && biome format --write .",
 		"lint": "biome check --max-diagnostics=none",
