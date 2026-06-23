@@ -1,5 +1,11 @@
 # @savvy-web/dependency-package
 
+## 1.1.3
+
+### Other
+
+* [`641efaf`](https://github.com/savvy-web/silk-integration/commit/641efaf1b463f541a17cdd5aa976fed804670773) Test turbo cache
+
 ## 1.1.2
 
 ### Other
