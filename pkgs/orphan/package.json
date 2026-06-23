@@ -2,7 +2,7 @@
 	"name": "@savvy-web/orphan-package",
 	"version": "1.0.0",
 	"private": true,
-	"description": "This package is not ready to be deployed just yet",
+	"description": "This package is not liked to anything else",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/savvy-web/workflow-integration.git",
