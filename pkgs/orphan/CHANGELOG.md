@@ -1,5 +1,11 @@
 # @savvy-web/orphan-package
 
+## 1.0.1
+
+### Other
+
+* [`fbb74ee`](https://github.com/savvy-web/silk-integration/commit/fbb74ee07e4080299a8aa167e1de4f22fc56c2bc) Simulate partial change
+
 ## 1.0.0
 
 ### Features
