@@ -1,5 +1,13 @@
 # @savvy-web/linked-2
 
+## 5.0.19
+
+### Patch Changes
+
+| Dependency                    | Type       | Action  | From  | To    |
+| ----------------------------- | ---------- | ------- | ----- | ----- |
+| @savvy-web/dependency-package | dependency | updated | 1.1.3 | 1.1.4 |
+
 ## 5.0.18
 
 ### Patch Changes

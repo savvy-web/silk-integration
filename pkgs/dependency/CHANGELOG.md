@@ -1,5 +1,11 @@
 # @savvy-web/dependency-package
 
+## 1.1.4
+
+### Other
+
+* [`c97007d`](https://github.com/savvy-web/silk-integration/commit/c97007d6fcbb2b40c19d35a2f5f7e04751ed2715) Test turbo logging in release action
+
 ## 1.1.3
 
 ### Other
