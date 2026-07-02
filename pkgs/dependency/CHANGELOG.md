@@ -1,5 +1,11 @@
 # @savvy-web/dependency-package
 
+## 1.2.0
+
+### Tests
+
+* [`170a4f1`](https://github.com/savvy-web/silk-integration/commit/170a4f1b5f76e964e82d7702031a1370ada82f99) Integration Run
+
 ## 1.1.4
 
 ### Other
