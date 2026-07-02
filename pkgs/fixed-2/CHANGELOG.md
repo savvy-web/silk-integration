@@ -1,5 +1,11 @@
 # @savvy-web/fixed-2
 
+## 2.3.0
+
+### Tests
+
+* [`5f2b5e0`](https://github.com/savvy-web/silk-integration/commit/5f2b5e0b7f50b031b510f98dd0b3b471dbfc7412) New Update action
+
 ## 2.2.4
 
 ### Patch Changes
