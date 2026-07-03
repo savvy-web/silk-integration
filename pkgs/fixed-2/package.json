@@ -1,6 +1,6 @@
 {
 	"name": "@savvy-web/fixed-2",
-	"version": "2.3.0",
+	"version": "2.3.1",
 	"private": true,
 	"description": "Second package in the fixed group (depends on dependency)",
 	"repository": {

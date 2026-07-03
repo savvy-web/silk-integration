@@ -1,5 +1,11 @@
 # @savvy-web/fixed-1
 
+## 2.3.1
+
+### Maintenance
+
+* Version-only release to keep workspace versions consistent; no changes to this package.
+
 ## 2.3.0
 
 ## 2.2.4

@@ -1,5 +1,11 @@
 # @savvy-web/dependency-package
 
+## 1.2.0
+
+### Tests
+
+* Integration Run
+
 ## 1.1.4
 
 ### Other
