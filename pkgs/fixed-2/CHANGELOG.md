@@ -1,5 +1,11 @@
 # @savvy-web/fixed-2
 
+## 2.3.2
+
+### Maintenance
+
+* Released in lockstep with `@savvy-web/fixed-1@2.3.2` (fixed version group).
+
 ## 2.3.1
 
 ### Dependencies

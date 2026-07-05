@@ -1,5 +1,15 @@
 # @savvy-web/fixed-1
 
+## 2.3.2
+
+### Maintenance
+
+* Exercise the native Phase 1 versioning path end to end: this changeset is applied by the release action's bundled changesets engine with no repository dependency installation.
+
+### Patch Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 2.3.1
 
 ### Maintenance

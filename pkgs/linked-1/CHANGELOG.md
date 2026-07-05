@@ -1,5 +1,15 @@
 # @savvy-web/linked-1
 
+## 5.0.21
+
+### Maintenance
+
+* Exercise the native Phase 1 update flow: a second pending changeset applied onto an existing release branch by the bundled changesets engine.
+
+### Patch Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 5.0.15
 
 ### Other
