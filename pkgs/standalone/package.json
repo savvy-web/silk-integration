@@ -27,7 +27,7 @@
 		"@savvy-web/dependency-package": "workspace:*"
 	},
 	"devDependencies": {
-		"@savvy-web/bundler": "^2.0.6",
+		"@savvy-web/bundler": "^2.0.8",
 		"@types/node": "catalog:silkPeers",
 		"typescript": "catalog:silk"
 	},
