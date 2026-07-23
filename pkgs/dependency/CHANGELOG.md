@@ -1,5 +1,15 @@
 # @savvy-web/dependency-package
 
+## 1.2.1
+
+### Other
+
+* Test
+
+### Patch Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 1.2.0
 
 ### Tests
