@@ -1,5 +1,13 @@
 # @savvy-web/standalone-package
 
+## 0.10.10
+
+### Dependencies
+
+| Dependency                    | Type       | Action  | From  | To    |
+| ----------------------------- | ---------- | ------- | ----- | ----- |
+| @savvy-web/dependency-package | dependency | updated | 1.2.2 | 1.2.3 |
+
 ## 0.10.9
 
 ### Dependencies
