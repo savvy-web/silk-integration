@@ -2,6 +2,6 @@
 "@savvy-web/dependency-package": patch
 ---
 
-## Other
-
-Test
+## Tests
+  
+Depds package
