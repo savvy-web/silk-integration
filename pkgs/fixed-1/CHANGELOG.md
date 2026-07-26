@@ -1,5 +1,16 @@
 # @savvy-web/fixed-1
 
+## 2.3.7
+
+### Bug Fixes
+
+* Second changeset in the same release, to verify the managed description accumulates both linked
+  issues rather than replacing the first.
+
+### Patch Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 2.3.6
 
 ### Maintenance
