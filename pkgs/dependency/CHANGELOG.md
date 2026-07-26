@@ -1,5 +1,11 @@
 # @savvy-web/dependency-package
 
+## 1.4.0
+
+### Tests [#255][#255] Thanks [@spencerbeggs](https://github.com/spencerbeggs)!
+
+[#255]: https://github.com/savvy-web/silk-integration/pull/255
+
 ## 1.3.0
 
 ### Features

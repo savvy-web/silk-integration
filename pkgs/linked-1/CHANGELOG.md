@@ -1,5 +1,15 @@
 # @savvy-web/linked-1
 
+## 5.0.26
+
+### Bug Fixes
+
+* First of three linked-issue checks.
+
+### Patch Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 5.0.21
 
 ### Maintenance
