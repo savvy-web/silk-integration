@@ -1,5 +1,16 @@
 # @savvy-web/standalone-package
 
+## 0.10.12
+
+### Bug Fixes
+
+* Verify that the release pull request description is managed across runs and that a linked issue
+  picks up its closing reference.
+
+### Patch Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 0.10.11
 
 ### Dependencies
