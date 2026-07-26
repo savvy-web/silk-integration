@@ -1,5 +1,13 @@
 # @savvy-web/fixed-2
 
+## 2.3.6
+
+### Dependencies
+
+| Dependency                    | Type       | Action  | From  | To    |
+| ----------------------------- | ---------- | ------- | ----- | ----- |
+| @savvy-web/dependency-package | dependency | updated | 1.2.3 | 1.3.0 |
+
 ## 2.3.5
 
 ### Dependencies
