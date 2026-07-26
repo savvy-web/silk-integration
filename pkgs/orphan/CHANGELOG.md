@@ -1,5 +1,15 @@
 # @savvy-web/orphan-package
 
+## 2.0.1
+
+### Bug Fixes
+
+* Second of three linked-issue checks.
+
+### Patch Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 2.0.0
 
 ### Tests
