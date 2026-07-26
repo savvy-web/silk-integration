@@ -1,5 +1,15 @@
 # @savvy-web/fixed-1
 
+## 3.0.0
+
+### Tests
+
+* Manually ticket addition
+
+### Major Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 2.3.8
 
 ### Maintenance
