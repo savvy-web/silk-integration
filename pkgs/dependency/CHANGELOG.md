@@ -1,5 +1,16 @@
 # @savvy-web/dependency-package
 
+## 1.3.0
+
+### Features
+
+* Exercise the full release cycle end to end: a minor bump on the cascade root, so its three
+  dependents take patch bumps and the release table shows a mixed-severity plan.
+
+### Minor Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 1.2.3
 
 ### Tests
