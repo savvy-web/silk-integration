@@ -1,5 +1,17 @@
 # @savvy-web/dependency-package
 
+## 1.2.3
+
+### Tests
+
+* Integration exercise for the rebuilt release action: verifies the GitHub Packages
+  integrity probe reads through the packument, and that a first-time release PR is
+  created with a body that links its issues.
+
+### Patch Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 1.2.2
 
 ### Tests

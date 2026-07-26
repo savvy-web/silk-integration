@@ -1,5 +1,13 @@
 # @savvy-web/linked-2
 
+## 5.0.24
+
+### Dependencies
+
+| Dependency                    | Type       | Action  | From  | To    |
+| ----------------------------- | ---------- | ------- | ----- | ----- |
+| @savvy-web/dependency-package | dependency | updated | 1.2.2 | 1.2.3 |
+
 ## 5.0.23
 
 ### Dependencies
