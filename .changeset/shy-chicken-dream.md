@@ -4,4 +4,4 @@
 
 ## Tests
 
-Auto-merge flow
+Auto-merge flows
