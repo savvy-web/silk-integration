@@ -1,5 +1,15 @@
 # @savvy-web/orphan-package
 
+## 3.0.0
+
+### Tests
+
+* Auto-merge flows
+
+### Major Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 2.0.1
 
 ### Bug Fixes
