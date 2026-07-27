@@ -1,11 +1,11 @@
 {
-	"name": "@savvy-web/workflow-integration",
+	"name": "@savvy-web/silk-integration",
 	"version": "0.0.0",
 	"private": true,
 	"description": "A private repository for GitHub-related tools and utilities.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/savvy-web/workflow-integration.git"
+		"url": "git+https://github.com/savvy-web/silk-integration.git"
 	},
 	"type": "module",
 	"scripts": {
