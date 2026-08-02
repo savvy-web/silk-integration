@@ -1,5 +1,15 @@
 # @savvy-web/linked-1
 
+## 6.0.0
+
+### Tests
+
+* ### Watch the runtime flow [#262][#262] Thanks [@spencerbeggs](https://github.com/spencerbeggs)!
+
+### Major Changes
+
+[#262]: https://github.com/savvy-web/silk-integration/pull/262
+
 ## 5.0.26
 
 ### Bug Fixes
