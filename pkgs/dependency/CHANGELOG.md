@@ -1,5 +1,17 @@
 # @savvy-web/dependency-package
 
+## 1.5.0
+
+### Other
+
+* Test router actions [#268][#268]
+
+### Minor Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#268]: https://github.com/savvy-web/silk-integration/pull/268
+
 ## 1.4.0
 
 ### Tests [#255][#255] Thanks [@spencerbeggs](https://github.com/spencerbeggs)!
