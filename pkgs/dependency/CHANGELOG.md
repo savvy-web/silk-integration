@@ -1,5 +1,15 @@
 # @savvy-web/dependency-package
 
+## 2.0.0
+
+### Tests
+
+* Test revised flow
+
+### Major Changes
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
 ## 1.5.0
 
 ### Other
