@@ -34,6 +34,13 @@ settings:
   excludeLinksFromLockfile: false
 
 catalogs:
+  build:
+    '@types/node':
+      specifier: ^26.1.2
+      version: 26.2.0
+    typescript:
+      specifier: ^7.0.2
+      version: 7.0.2
   silk:
     typescript:
       specifier: ^7.0.2
@@ -65,10 +72,10 @@ importers:
         specifier: ^2.1.12
         version: 2.1.12(@effected/jsonc@0.6.0(effect@4.0.0-beta.107))(@effected/semver@0.4.0(effect@4.0.0-beta.107))(@effected/walker@0.4.0(@effected/glob@0.3.0(effect@4.0.0-beta.107))(effect@4.0.0-beta.107))(@types/node@26.2.0)(ioredis@5.11.1(supports-color@8.1.1))(react@19.2.8)(tsx@4.23.12)(typescript@7.0.2)
       '@types/node':
-        specifier: catalog:silkPeers
+        specifier: catalog:build
         version: 26.2.0
       typescript:
-        specifier: catalog:silk
+        specifier: catalog:build
         version: 7.0.2
     publishDirectory: dist/dev/pkg
 
@@ -78,10 +85,10 @@ importers:
         specifier: ^2.1.12
         version: 2.1.12(@effected/jsonc@0.6.0(effect@4.0.0-beta.107))(@effected/semver@0.4.0(effect@4.0.0-beta.107))(@effected/walker@0.4.0(@effected/glob@0.3.0(effect@4.0.0-beta.107))(effect@4.0.0-beta.107))(@types/node@26.2.0)(ioredis@5.11.1(supports-color@8.1.1))(react@19.2.8)(tsx@4.23.12)(typescript@7.0.2)
       '@types/node':
-        specifier: catalog:silkPeers
+        specifier: catalog:build
         version: 26.2.0
       typescript:
-        specifier: catalog:silk
+        specifier: catalog:build
         version: 7.0.2
     publishDirectory: dist/dev/pkg
 
@@ -108,10 +115,10 @@ importers:
         specifier: ^2.1.12
         version: 2.1.12(@effected/jsonc@0.6.0(effect@4.0.0-beta.107))(@effected/semver@0.4.0(effect@4.0.0-beta.107))(@effected/walker@0.4.0(@effected/glob@0.3.0(effect@4.0.0-beta.107))(effect@4.0.0-beta.107))(@types/node@26.2.0)(ioredis@5.11.1(supports-color@8.1.1))(react@19.2.8)(tsx@4.23.12)(typescript@7.0.2)
       '@types/node':
-        specifier: catalog:silkPeers
+        specifier: catalog:build
         version: 26.2.0
       typescript:
-        specifier: catalog:silk
+        specifier: catalog:build
         version: 7.0.2
     publishDirectory: dist/dev/pkg
 
@@ -125,10 +132,10 @@ importers:
         specifier: ^2.1.12
         version: 2.1.12(@effected/jsonc@0.6.0(effect@4.0.0-beta.107))(@effected/semver@0.4.0(effect@4.0.0-beta.107))(@effected/walker@0.4.0(@effected/glob@0.3.0(effect@4.0.0-beta.107))(effect@4.0.0-beta.107))(@types/node@26.2.0)(ioredis@5.11.1(supports-color@8.1.1))(react@19.2.8)(tsx@4.23.12)(typescript@7.0.2)
       '@types/node':
-        specifier: catalog:silkPeers
+        specifier: catalog:build
         version: 26.2.0
       typescript:
-        specifier: catalog:silk
+        specifier: catalog:build
         version: 7.0.2
     publishDirectory: dist/dev/pkg
 
@@ -138,10 +145,10 @@ importers:
         specifier: ^2.1.12
         version: 2.1.12(@effected/jsonc@0.6.0(effect@4.0.0-beta.107))(@effected/semver@0.4.0(effect@4.0.0-beta.107))(@effected/walker@0.4.0(@effected/glob@0.3.0(effect@4.0.0-beta.107))(effect@4.0.0-beta.107))(@types/node@26.2.0)(ioredis@5.11.1(supports-color@8.1.1))(react@19.2.8)(tsx@4.23.12)(typescript@7.0.2)
       '@types/node':
-        specifier: catalog:silkPeers
+        specifier: catalog:build
         version: 26.2.0
       typescript:
-        specifier: catalog:silk
+        specifier: catalog:build
         version: 7.0.2
     publishDirectory: dist/dev/pkg
 
@@ -155,10 +162,10 @@ importers:
         specifier: ^2.1.12
         version: 2.1.12(@effected/jsonc@0.6.0(effect@4.0.0-beta.107))(@effected/semver@0.4.0(effect@4.0.0-beta.107))(@effected/walker@0.4.0(@effected/glob@0.3.0(effect@4.0.0-beta.107))(effect@4.0.0-beta.107))(@types/node@26.2.0)(ioredis@5.11.1(supports-color@8.1.1))(react@19.2.8)(tsx@4.23.12)(typescript@7.0.2)
       '@types/node':
-        specifier: catalog:silkPeers
+        specifier: catalog:build
         version: 26.2.0
       typescript:
-        specifier: catalog:silk
+        specifier: catalog:build
         version: 7.0.2
     publishDirectory: dist/dev/pkg
 
