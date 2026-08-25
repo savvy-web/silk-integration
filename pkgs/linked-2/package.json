@@ -27,7 +27,7 @@
 		"@savvy-web/dependency-package": "workspace:*"
 	},
 	"devDependencies": {
-		"@savvy-web/bundler": "^2.1.24",
+		"@savvy-web/bundler": "^2.1.26",
 		"@types/node": "catalog:build",
 		"typescript": "catalog:build"
 	},
