@@ -6,25 +6,25 @@ importers:
   .:
     configDependencies:
       '@effected/pnpm-plugin-effect':
-        specifier: 0.7.6
-        version: 0.7.6
+        specifier: 0.8.4
+        version: 0.8.4
       '@savvy-web/pnpm-plugin-silk':
-        specifier: 0.34.3
-        version: 0.34.3
+        specifier: 0.37.0
+        version: 0.37.0
 
 packages:
 
-  '@effected/pnpm-plugin-effect@0.7.6':
-    resolution: {integrity: sha512-WqSggJv87tM+mJI1sM5KOr2FlaRd6yt+jhDT8HcE2IqczJuXzXrZZWqR3ZlkPa3Y1NQnR+VmocdSYviIaxXvqQ==}
+  '@effected/pnpm-plugin-effect@0.8.4':
+    resolution: {integrity: sha512-ej/83Mn843C8aOq1ttPL0cQERPUuTiavzvov7T1xbDs3tXJ5frkQA7kRkb4GQPPagAj5ozFyQxkesFPQ6nKgXw==}
 
-  '@savvy-web/pnpm-plugin-silk@0.34.3':
-    resolution: {integrity: sha512-OQ/UV7SJGXsrma0R8pjG37jw/y4VXj6K/GuetK54uRj2q+oAbdpQXqtN7Y+GZWUF7J4GCoH+ukDiXuitEf2/qg==}
+  '@savvy-web/pnpm-plugin-silk@0.37.0':
+    resolution: {integrity: sha512-PLAkQmkvC1A4x0/q66Bycb8fk8LgBgh9MLhd6rApPX/FINCyh8Py0HaiV3czTaw3xOM/ehdSN3ab1+X2YujUIw==}
 
 snapshots:
 
-  '@effected/pnpm-plugin-effect@0.7.6': {}
+  '@effected/pnpm-plugin-effect@0.8.4': {}
 
-  '@savvy-web/pnpm-plugin-silk@0.34.3': {}
+  '@savvy-web/pnpm-plugin-silk@0.37.0': {}
 
 ---
 lockfileVersion: '9.0'
@@ -36,7 +36,7 @@ settings:
 catalogs:
   build:
     '@types/node':
-      specifier: ^26.5.0
+      specifier: ^26.5.1
       version: 26.5.1
     typescript:
       specifier: ^7.0.2
@@ -46,7 +46,7 @@ overrides:
   '@effect/vitest>vitest': ^5.0.0
   '@microsoft/api-extractor>typescript': ^6.0.3
 
-pnpmfileChecksum: sha256-nEvJnDTDikzBaLYEm5GAeFon9riyLA1duvMa4hSIw0M=
+pnpmfileChecksum: sha256-s6B7oTztZNN52n3H2MKuWukm77sqm7pqs77ArHhlfdY=
 
 importers:
 
