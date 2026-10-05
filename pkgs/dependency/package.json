@@ -21,7 +21,7 @@
 	"scripts": {
 		"build:dev": "node savvy.build.ts --target dev",
 		"build:prod": "node savvy.build.ts --target prod",
-		"prepare": "node savvy.build.ts --target dev",
+		"prepare": "turbo run build:dev",
 		"types:check": "tsc --noEmit"
 	},
 	"devDependencies": {
