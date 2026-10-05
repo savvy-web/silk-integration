@@ -20,3 +20,5 @@ export function getSharedValue(): SharedValue {
  * @public
  */
 export const SHARED_CONSTANT = "DEPENDENCY_CONSTANT";
+
+// Probe marker for savvy-web/silk-integration#376: changes the build:dev input hash.
