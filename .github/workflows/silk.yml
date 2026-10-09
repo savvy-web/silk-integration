@@ -1,0 +1,21 @@
+# Dispatched by the Savvy Web App (silk-app) for each pull request head. run-name carries the plan id,
+# which the App matches against workflow_run.display_title to correlate the run. Echo-only until the
+# silk-action executor (OPS-29) replaces the step.
+name: silk
+run-name: ${{ inputs.plan-id }}
+on:
+  workflow_dispatch:
+    inputs:
+      plan-id:
+        description: Plan id assigned by the Savvy Web App
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "plan ${PLAN_ID}"
+        env:
+          PLAN_ID: ${{ inputs.plan-id }}
