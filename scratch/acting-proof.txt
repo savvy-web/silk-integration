@@ -2,3 +2,4 @@ acting slice A staging proof 1
 proof 2
 proof 4
 proof 5
+proof 6
