@@ -39,7 +39,11 @@
 		"directory": "dist/dev/pkg",
 		"linkDirectory": true,
 		"targets": {
-			"github": true
+			"github": true,
+			"savvy": {
+				"registry": "https://registry.savvyweb.systems/npm/",
+				"from": "github"
+			}
 		}
 	}
 }
