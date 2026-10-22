@@ -1,5 +1,23 @@
 # @savvy-web/standalone-package
 
+## 0.10.17
+
+### Tests
+
+- Publish every demo package to Savvy Web's own registry (`https://registry.savvyweb.systems/npm/`) as a second target alongside GitHub Packages, reusing the GitHub target's bytes. [#401][#401]
+
+### Dependencies
+
+| Dependency | Type | Action | From | To |
+| --- | --- | --- | --- | --- |
+| @savvy-web/dependency-package | dependency | updated | 3.0.0 | 3.0.1 |
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#401]: https://github.com/savvy-web/silk-integration/pull/401
+
 ## 0.10.16
 
 ### Dependencies
@@ -351,7 +369,7 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
   - **100% Alignment** - When all systems work together!
   - **INFINITE Potential** - The cosmic possibilities are ENDLESS!
 
-  ## Migration \& Compatibility ✅
+  ## Migration & Compatibility ✅
   These are ALL NEW features - nothing to migrate! Just import and start experiencing cosmic enlightenment!
 
   All three packages remain fully backward compatible. The cosmic oracle is a PURE ADDITION of awesome capabilities!

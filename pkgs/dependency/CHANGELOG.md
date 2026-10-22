@@ -1,5 +1,17 @@
 # @savvy-web/dependency-package
 
+## 3.0.1
+
+### Tests
+
+- Publish every demo package to Savvy Web's own registry (`https://registry.savvyweb.systems/npm/`) as a second target alongside GitHub Packages, reusing the GitHub target's bytes. [#401][#401]
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#401]: https://github.com/savvy-web/silk-integration/pull/401
+
 ## 3.0.0
 
 ### Tests
@@ -34,7 +46,7 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
 
 ## 1.4.0
 
-### Tests [\#255][#255] Thanks [@spencerbeggs](https://github.com/spencerbeggs)!
+### Tests [#255][#255] Thanks [@spencerbeggs](https://github.com/spencerbeggs)!
 
 [#255]: https://github.com/savvy-web/silk-integration/pull/255
 
@@ -349,7 +361,7 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
   - **100% Alignment** - When all systems work together!
   - **INFINITE Potential** - The cosmic possibilities are ENDLESS!
 
-  ## Migration \& Compatibility ✅
+  ## Migration & Compatibility ✅
   These are ALL NEW features - nothing to migrate! Just import and start experiencing cosmic enlightenment!
 
   All three packages remain fully backward compatible. The cosmic oracle is a PURE ADDITION of awesome capabilities!
@@ -418,7 +430,7 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
   ### 💝 Why You'll Love It
   - **Perfect for Introverts** - Debug without saying a word!
   - **Always Supportive** - Our ducks NEVER judge, only encourage!
-  - **Fast \& Friendly** - Instant telepathic insights!
+  - **Fast & Friendly** - Instant telepathic insights!
   - **Mood-Aware** - Adapts to your emotional state!
   - **Fun to Use** - Because debugging should bring joy! ✨
 
@@ -432,7 +444,7 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
   ```
   ## The Science Behind the Magic 🔬✨
   Okay, okay - between you and us, this is a *simulated* telepathy implementation for now. But the encouragement is 100% REAL, and the positive vibes are ABSOLUTELY genuine! Our ducks are trained to be the most supportive debugging companions you've ever had! 💙
-  ## Migration \& Compatibility 🔄
+  ## Migration & Compatibility 🔄
   This is a brand new feature, so there's nothing to migrate! Just start using it and enjoy the telepathic debugging experience! It works alongside all our existing debugging features - we're just giving you MORE ways to debug with happiness! 😊
   ## What Our Beta Testers Say! 💬
   > "I can't believe I'm debugging in silence with a rubber duck reading my mind. This is the future!" - Happy Developer
@@ -440,7 +452,7 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
   > "The encouragement feature makes me feel so supported. 10/10!" - Another Happy Developer
 
   > "My office is quiet, but my debugging is POWERFUL!" - Yet Another Happy Developer
-  ## Performance \& Privacy 🔒
+  ## Performance & Privacy 🔒
   - **Lightning Fast** - Thought detection in \~100ms!
   - **Privacy First** - All "mind-reading" happens locally, your thoughts never leave your machine!
   - **Zero Dependencies Added** - Lightweight and efficient!
@@ -462,7 +474,8 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
   - Migration helpers for transitioning existing code (good luck with that)
   - Batch quacking utilities that will probably race in production
 
-  **Backward Compatibility:**&#10;The original `quack()` method still exists for now. We kept it synchronous to avoid breaking everything immediately, though someone will inevitably find a way to break anyway. The new `quackAsync()` method is there for when you need your quacks to await properly.
+  **Backward Compatibility:**
+  The original `quack()` method still exists for now. We kept it synchronous to avoid breaking everything immediately, though someone will inevitably find a way to break anyway. The new `quackAsync()` method is there for when you need your quacks to await properly.
 
   **Known Issues (that we're sure about):**
   - Race conditions in batch operations (probably)
@@ -471,7 +484,8 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
 
   We tested this as thoroughly as we could, but let's be honest—there's always some edge case lurking in production that we didn't think of. Report bugs when (not if) you find them.
 
-  **Migration Path:**&#10;If you're brave enough to migrate existing synchronous quacking code to async, use the `migrateQuackCaller()` helper. Read the docs carefully. It probably won't handle your specific use case, but it's a start.
+  **Migration Path:**
+  If you're brave enough to migrate existing synchronous quacking code to async, use the `migrateQuackCaller()` helper. Read the docs carefully. It probably won't handle your specific use case, but it's a start.
 
   Good luck out there. You'll need it.
 

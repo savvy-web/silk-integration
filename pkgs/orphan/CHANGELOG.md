@@ -1,10 +1,22 @@
 # @savvy-web/orphan-package
 
+## 3.0.1
+
+### Tests
+
+- Publish every demo package to Savvy Web's own registry (`https://registry.savvyweb.systems/npm/`) as a second target alongside GitHub Packages, reusing the GitHub target's bytes. [#401][#401]
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#401]: https://github.com/savvy-web/silk-integration/pull/401
+
 ## 3.0.0
 
 ### Tests
 
-* Auto-merge flows
+- Auto-merge flows
 
 ### Major Changes
 
@@ -14,7 +26,7 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
 
 ### Bug Fixes
 
-* Second of three linked-issue checks.
+- Second of three linked-issue checks.
 
 ### Patch Changes
 
@@ -24,7 +36,7 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
 
 ### Tests
 
-* Running integration
+- Running integration
 
 ### Major Changes
 
@@ -34,10 +46,10 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
 
 ### Other
 
-* [`fbb74ee`](https://github.com/savvy-web/silk-integration/commit/fbb74ee07e4080299a8aa167e1de4f22fc56c2bc) Simulate partial change
+- [`fbb74ee`](https://github.com/savvy-web/silk-integration/commit/fbb74ee07e4080299a8aa167e1de4f22fc56c2bc) Simulate partial change
 
 ## 1.0.0
 
 ### Features
 
-* [`20506bf`](https://github.com/savvy-web/silk-integration/commit/20506bf2588443609469ae8c5cd09269885e859a) Will this trigger a publish?
+- [`20506bf`](https://github.com/savvy-web/silk-integration/commit/20506bf2588443609469ae8c5cd09269885e859a) Will this trigger a publish?
