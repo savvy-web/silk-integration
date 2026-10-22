@@ -1,5 +1,23 @@
 # @savvy-web/fixed-2
 
+## 3.0.4
+
+### Tests
+
+- Publish every demo package to Savvy Web's own registry (`https://registry.savvyweb.systems/npm/`) as a second target alongside GitHub Packages, reusing the GitHub target's bytes. [#401][#401]
+
+### Dependencies
+
+| Dependency | Type | Action | From | To |
+| --- | --- | --- | --- | --- |
+| @savvy-web/dependency-package | dependency | updated | 3.0.0 | 3.0.1 |
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#401]: https://github.com/savvy-web/silk-integration/pull/401
+
 ## 3.0.3
 
 ### Dependencies
