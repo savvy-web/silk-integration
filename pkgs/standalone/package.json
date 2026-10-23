@@ -42,7 +42,8 @@
 			"github": true,
 			"savvy": {
 				"registry": "https://registry.savvyweb.systems/npm/",
-				"from": "github"
+				"from": "github",
+				"releases": "prerelease"
 			}
 		}
 	}
