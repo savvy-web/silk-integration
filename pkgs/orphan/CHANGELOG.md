@@ -1,5 +1,17 @@
 # @savvy-web/orphan-package
 
+## 3.0.5-beta.0
+
+### Tests
+
+- Release every demo package as a beta prerelease, so the standalone package's prerelease-only Savvy Web target publishes, and every target takes the beta dist-tag instead of latest. [#410][#410]
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#410]: https://github.com/savvy-web/silk-integration/pull/410
+
 ## 3.0.4
 
 ### Tests
