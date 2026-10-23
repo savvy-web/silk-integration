@@ -41,7 +41,7 @@
 		"targets": {
 			"github": true,
 			"savvy": {
-				"registry": "https://registry.savvyweb.systems/npm/",
+				"registry": "https://registry.savvyweb.systems/npm/~savvy/",
 				"from": "github"
 			}
 		}
