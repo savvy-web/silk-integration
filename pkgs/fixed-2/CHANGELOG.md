@@ -1,5 +1,23 @@
 # @savvy-web/fixed-2
 
+## 3.0.7
+
+### Tests
+
+- Release every demo package again to confirm the release action's corrected publish counts and token-only authentication on registries other than npm, with the standalone package's prerelease-only Savvy Web target still filtered. [#407][#407]
+
+### Dependencies
+
+| Dependency | Type | Action | From | To |
+| --- | --- | --- | --- | --- |
+| @savvy-web/dependency-package | dependency | updated | 3.0.3 | 3.0.4 |
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#407]: https://github.com/savvy-web/silk-integration/pull/407
+
 ## 3.0.6
 
 ### Tests
