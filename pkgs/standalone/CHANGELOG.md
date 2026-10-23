@@ -1,5 +1,23 @@
 # @savvy-web/standalone-package
 
+## 0.10.22
+
+### Tests
+
+- Publish to the Savvy Web registry through its `~savvy` hosted endpoint with a workload credential minted from the job's OIDC token instead of a stored token, and read back with a separate read-only credential. [#414][#414]
+
+### Dependencies
+
+| Dependency | Type | Action | From | To |
+| --- | --- | --- | --- | --- |
+| @savvy-web/dependency-package | dependency | updated | 3.0.5 | 3.0.6 |
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#414]: https://github.com/savvy-web/silk-integration/pull/414
+
 ## 0.10.21
 
 ### Tests
