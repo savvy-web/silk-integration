@@ -1,5 +1,17 @@
 # @savvy-web/fixed-1
 
+## 3.0.6
+
+### Tests
+
+- Limit the standalone package's Savvy Web registry target to prerelease versions (`releases: "prerelease"`), so a stable release skips that one target while every other target still publishes. [#405][#405]
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#405]: https://github.com/savvy-web/silk-integration/pull/405
+
 ## 3.0.5
 
 ### Tests
