@@ -1,5 +1,17 @@
 # @savvy-web/dependency-package
 
+## 3.0.2
+
+### Tests
+
+- Release every demo package again with no `releases` filter set, as a baseline for the release action's explicit dist-tags and its new resolution of publish targets. [#403][#403]
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#403]: https://github.com/savvy-web/silk-integration/pull/403
+
 ## 3.0.1
 
 ### Tests
