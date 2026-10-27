@@ -1,5 +1,17 @@
 # @savvy-web/linked-1
 
+## 6.0.10
+
+### Tests
+
+- Release every demo package to the Savvy Web registry with a workload credential after its move to pnpr 0.1.0-alpha.17, whose storage layout no longer serves the versions published before it. [#424][#424]
+
+### Thanks
+
+Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributions!
+
+[#424]: https://github.com/savvy-web/silk-integration/pull/424
+
 ## 6.0.9
 
 ### Tests
@@ -89,8 +101,6 @@ Thanks to [@spencerbeggs](https://github.com/spencerbeggs) for their contributio
 ### Tests
 
 - ### Watch the runtime flow [#262][#262] Thanks [@spencerbeggs](https://github.com/spencerbeggs)!
-
-### Major Changes
 
 [#262]: https://github.com/savvy-web/silk-integration/pull/262
 
