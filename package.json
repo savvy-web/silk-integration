@@ -9,8 +9,8 @@
 	},
 	"type": "module",
 	"scripts": {
-		"build": "turbo run build:dev build:prod --log-order=grouped --log-prefix=none",
-		"ci:build": "CI=\"true\" turbo run build:dev build:prod --log-order=grouped --log-prefix=none",
+		"build": "turbo run build --log-order=grouped --log-prefix=none",
+		"ci:build": "CI=\"true\" turbo run build --log-order=grouped --log-prefix=none",
 		"ci:test": "CI=\"true\" vitest run --coverage",
 		"ci:version": "savvy changeset version && biome format --write .",
 		"lint": "biome check --max-diagnostics=none",
@@ -28,8 +28,15 @@
 	"devDependencies": {
 		"@effected/plugin": "catalog:effected",
 		"@okfit/plugin": "^0.5.29",
-		"@savvy-web/silk": "^4.5.6",
-		"@vitest-agent/plugin": "^6.0.5"
+		"@savvy-web/silk": "^5.0.0",
+		"@types/node": "catalog:effected:build",
+		"@types/react": "catalog:effected:build",
+		"@types/react-dom": "catalog:effected:build",
+		"@vitest-agent/plugin": "^6.0.5",
+		"react": "catalog:effected:build",
+		"react-dom": "catalog:effected:build",
+		"tsx": "catalog:effected:build",
+		"typescript": "catalog:effected:build"
 	},
 	"engines": {
 		"node": ">=24.0.0"
