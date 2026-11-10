@@ -37,30 +37,27 @@ pkgs/
 
 ## Build System
 
-### Builder Package
+### Builder
 
-The `@savvy-web/builder` package contains shared build utilities (`TestBuildPlugin`) used by all publishable packages. It:
-
-- Manages the `files` array in package.json during builds
-- Copies essential files (README, LICENSE, package.json) to dist
-- Updates exports and cleans up package.json for publishing
+Every package builds with `effected package build` from `@effected/plugin` (a root devDependency). No package has an `effected.toml`; the defaults apply. Each `tsconfig.json` extends `@effected/plugin/tsconfig/ecma.json`.
 
 ### Build Chain (Turbo)
 
 ```text
-@savvy-web/builder#build:dev
+@savvy-web/{package}#types:check (dependsOn ^types:check)
        ↓
-@savvy-web/{package}#typecheck (via ^build:dev dependency)
-       ↓
-@savvy-web/{package}#build:dev / build:npm (depends on builder#build)
+@savvy-web/{package}#build (dependsOn types:check)
 ```
+
+There is no dev build. Workspace siblings link through `exports` to `src/`.
 
 ### Package Build Outputs
 
-Each publishable package builds to:
+Each publishable package builds to `dist/prod/`:
 
-- `dist/dev/` - Development build (used for workspace linking)
-- `dist/npm/` - NPM publish build
+- `dist/prod/<group>/pkg/` - the package to publish, one group per `publishConfig.targets` group
+- `dist/prod/targets.json` - publish groups and registry targets
+- `dist/prod/issues.json` - build diagnostics; read `buildOk` first
 
 ## Testing
 
