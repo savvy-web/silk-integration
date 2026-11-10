@@ -27,12 +27,12 @@
 	},
 	"devDependencies": {
 		"@effected/plugin": "catalog:effected",
-		"@okfit/plugin": "^0.5.29",
+		"@okfit/plugin": "^0.5.32",
 		"@savvy-web/silk": "^5.0.0",
 		"@types/node": "catalog:effected:build",
 		"@types/react": "catalog:effected:build",
 		"@types/react-dom": "catalog:effected:build",
-		"@vitest-agent/plugin": "^6.0.5",
+		"@vitest-agent/plugin": "^6.0.9",
 		"react": "catalog:effected:build",
 		"react-dom": "catalog:effected:build",
 		"tsx": "catalog:effected:build",
@@ -44,7 +44,7 @@
 	"devEngines": {
 		"packageManager": {
 			"name": "pnpm",
-			"version": "12.17.0",
+			"version": "12.19.0",
 			"onFail": "download"
 		},
 		"runtime": [
