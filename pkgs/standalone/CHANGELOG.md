@@ -1,5 +1,17 @@
 # @savvy-web/standalone-package
 
+## 0.10.24
+
+### Tests
+
+- Release every demo package to the Savvy Web registry with a workload credential after its rebuild on pnpr 0.1.0-alpha.20, whose new Postgres database and R2 store started empty.
+
+### Dependencies
+
+| Dependency | Type | Action | From | To |
+| --- | --- | --- | --- | --- |
+| @savvy-web/dependency-package | dependency | updated | 3.0.7 | 3.0.8 |
+
 ## 0.10.23
 
 ### Tests

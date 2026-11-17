@@ -1,5 +1,11 @@
 # @savvy-web/linked-1
 
+## 6.0.11
+
+### Tests
+
+- Release every demo package to the Savvy Web registry with a workload credential after its rebuild on pnpr 0.1.0-alpha.20, whose new Postgres database and R2 store started empty.
+
 ## 6.0.10
 
 ### Tests
