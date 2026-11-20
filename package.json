@@ -28,7 +28,7 @@
 	"devDependencies": {
 		"@effected/plugin": "catalog:effected",
 		"@okfit/plugin": "^0.5.37",
-		"@savvy-web/silk": "^5.1.6",
+		"@savvy-web/silk": "^5.1.7",
 		"@types/node": "catalog:effected:build",
 		"@types/react": "catalog:effected:build",
 		"@types/react-dom": "catalog:effected:build",
