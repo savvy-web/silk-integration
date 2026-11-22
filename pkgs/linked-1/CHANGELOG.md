@@ -1,5 +1,11 @@
 # @savvy-web/linked-1
 
+## 6.1.0
+
+### Other
+
+- Test bot
+
 ## 6.0.11
 
 ### Tests

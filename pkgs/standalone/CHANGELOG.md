@@ -1,5 +1,17 @@
 # @savvy-web/standalone-package
 
+## 0.11.0
+
+### Dependencies
+
+| Dependency | Type | Action | From | To |
+| --- | --- | --- | --- | --- |
+| @savvy-web/dependency-package | dependency | updated | 3.0.8 | 3.1.0 |
+
+### Other
+
+- Test bot
+
 ## 0.10.24
 
 ### Tests
