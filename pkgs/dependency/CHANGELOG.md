@@ -1,5 +1,11 @@
 # @savvy-web/dependency-package
 
+## 3.1.0
+
+### Other
+
+- Test bot
+
 ## 3.0.8
 
 ### Tests

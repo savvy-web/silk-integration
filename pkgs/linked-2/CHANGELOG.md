@@ -1,5 +1,17 @@
 # @savvy-web/linked-2
 
+## 6.1.0
+
+### Dependencies
+
+| Dependency | Type | Action | From | To |
+| --- | --- | --- | --- | --- |
+| @savvy-web/dependency-package | dependency | updated | 3.0.8 | 3.1.0 |
+
+### Other
+
+- Test bot
+
 ## 6.0.11
 
 ### Tests
